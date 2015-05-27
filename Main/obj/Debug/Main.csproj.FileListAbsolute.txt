@@ -1,0 +1,15 @@
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\bin\Debug\Main.exe.config
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.Form1.resources
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.Properties.Resources.resources
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.csproj.GenerateResource.Cache
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\bin\Debug\Main.exe
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\bin\Debug\Main.pdb
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.exe
+c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.pdb
+C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormGiaoDich.resources
+C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormGioiThieu.resources
+C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormHoaDon.resources
+C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\bin\Debug\Main.exe.config
+C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\obj\Debug\Main.exe
+C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\obj\Debug\Main.pdb
