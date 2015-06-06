@@ -29,30 +29,14 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,28 +48,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
+            this.dtgrid_HopDong = new System.Windows.Forms.DataGridView();
+            this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbtMHD = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.comboTree1 = new DevComponents.DotNetBar.Controls.ComboTree();
             this.panelEx1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_HopDong)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.dataGridView1);
+            this.panelEx1.Controls.Add(this.comboTree1);
+            this.panelEx1.Controls.Add(this.cbtMHD);
+            this.panelEx1.Controls.Add(this.dateTimePicker1);
+            this.panelEx1.Controls.Add(this.dateTimePicker4);
+            this.panelEx1.Controls.Add(this.dtNgaySinh);
+            this.panelEx1.Controls.Add(this.dtgrid_HopDong);
             this.panelEx1.Controls.Add(this.buttonX5);
             this.panelEx1.Controls.Add(this.buttonX4);
             this.panelEx1.Controls.Add(this.buttonX3);
             this.panelEx1.Controls.Add(this.buttonX2);
             this.panelEx1.Controls.Add(this.buttonX1);
-            this.panelEx1.Controls.Add(this.dateTimePicker3);
-            this.panelEx1.Controls.Add(this.dateTimePicker2);
-            this.panelEx1.Controls.Add(this.dateTimePicker1);
             this.panelEx1.Controls.Add(this.textBox9);
             this.panelEx1.Controls.Add(this.textBox8);
             this.panelEx1.Controls.Add(this.textBox4);
-            this.panelEx1.Controls.Add(this.textBox3);
-            this.panelEx1.Controls.Add(this.textBox2);
             this.panelEx1.Controls.Add(this.textBox1);
             this.panelEx1.Controls.Add(this.label9);
             this.panelEx1.Controls.Add(this.label8);
@@ -98,7 +88,7 @@
             this.panelEx1.Controls.Add(this.label1);
             this.panelEx1.Controls.Add(this.reflectionLabel1);
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEx1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.panelEx1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
             this.panelEx1.Size = new System.Drawing.Size(931, 492);
@@ -110,82 +100,6 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 322);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(925, 158);
-            this.dataGridView1.TabIndex = 28;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Số thứ tự";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 75;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Mã hợp đồng";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Mã khách hàng";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Mã nhân viên";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 90;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Tên hợp đồng";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ngày ký";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 85;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Ngày bắt đầu";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 85;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Ngày kết thúc";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 85;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Tình trạng";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Trị giá";
-            this.Column10.Name = "Column10";
             // 
             // buttonX5
             // 
@@ -247,27 +161,6 @@
             this.buttonX1.TabIndex = 23;
             this.buttonX1.Text = "Thêm";
             // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(672, 122);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(158, 26);
-            this.dateTimePicker3.TabIndex = 22;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(400, 220);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(158, 26);
-            this.dateTimePicker2.TabIndex = 21;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(400, 176);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 26);
-            this.dateTimePicker1.TabIndex = 20;
-            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(672, 220);
@@ -286,22 +179,8 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(400, 125);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.Size = new System.Drawing.Size(111, 26);
             this.textBox4.TabIndex = 14;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(161, 173);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 13;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(161, 219);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 12;
             // 
             // textBox1
             // 
@@ -313,6 +192,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(564, 226);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 19);
@@ -322,6 +202,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(564, 173);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 19);
@@ -331,6 +212,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(294, 219);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 19);
@@ -340,6 +222,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(564, 125);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 19);
@@ -349,6 +232,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(294, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 19);
@@ -358,6 +242,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(294, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 19);
@@ -367,6 +252,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(30, 219);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 19);
@@ -376,6 +262,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(30, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 19);
@@ -405,6 +292,71 @@
             this.reflectionLabel1.TabIndex = 1;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Hợp Đồng</font></font></b>";
             // 
+            // dtgrid_HopDong
+            // 
+            this.dtgrid_HopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrid_HopDong.Location = new System.Drawing.Point(3, 315);
+            this.dtgrid_HopDong.Name = "dtgrid_HopDong";
+            this.dtgrid_HopDong.Size = new System.Drawing.Size(916, 133);
+            this.dtgrid_HopDong.TabIndex = 29;
+            // 
+            // dtNgaySinh
+            // 
+            this.dtNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgaySinh.Location = new System.Drawing.Point(400, 216);
+            this.dtNgaySinh.Name = "dtNgaySinh";
+            this.dtNgaySinh.Size = new System.Drawing.Size(111, 26);
+            this.dtNgaySinh.TabIndex = 30;
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker4.Location = new System.Drawing.Point(400, 170);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(111, 26);
+            this.dateTimePicker4.TabIndex = 31;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(672, 118);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(111, 26);
+            this.dateTimePicker1.TabIndex = 32;
+            // 
+            // cbtMHD
+            // 
+            this.cbtMHD.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.cbtMHD.BackgroundStyle.Class = "TextBoxBorder";
+            this.cbtMHD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbtMHD.ButtonDropDown.Visible = true;
+            this.cbtMHD.Location = new System.Drawing.Point(161, 219);
+            this.cbtMHD.Name = "cbtMHD";
+            this.cbtMHD.Size = new System.Drawing.Size(100, 23);
+            this.cbtMHD.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbtMHD.TabIndex = 38;
+            // 
+            // comboTree1
+            // 
+            this.comboTree1.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.comboTree1.BackgroundStyle.Class = "TextBoxBorder";
+            this.comboTree1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.comboTree1.ButtonDropDown.Visible = true;
+            this.comboTree1.Location = new System.Drawing.Point(161, 176);
+            this.comboTree1.Name = "comboTree1";
+            this.comboTree1.Size = new System.Drawing.Size(100, 23);
+            this.comboTree1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.comboTree1.TabIndex = 39;
+            // 
             // FormHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,7 +367,7 @@
             this.Text = "FormHopDong";
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_HopDong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -424,14 +376,9 @@
 
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -442,21 +389,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private DevComponents.DotNetBar.ButtonX buttonX5;
         private DevComponents.DotNetBar.ButtonX buttonX4;
         private DevComponents.DotNetBar.ButtonX buttonX3;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        private System.Windows.Forms.DataGridView dtgrid_HopDong;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dtNgaySinh;
+        private DevComponents.DotNetBar.Controls.ComboTree comboTree1;
+        private DevComponents.DotNetBar.Controls.ComboTree cbtMHD;
     }
 }

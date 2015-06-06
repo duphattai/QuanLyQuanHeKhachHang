@@ -16,5 +16,10 @@ namespace Main.GUI
         {
             InitializeComponent();
         }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }
