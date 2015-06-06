@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QUANLYQUANHEKHACHHANG" Class="QLKhachHangDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CAOTHUONG\CAOTHUONG;Initial Catalog=QUANLYQUANHEKHACHHANG;Integrated Security=True" SettingsObjectName="Main.Properties.Settings" SettingsPropertyName="QUANLYQUANHEKHACHHANGConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CTHD" Member="CTHDs">
+    <Type Name="CTHD">
+      <Column Name="MACTHD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="HOPDONG_CTHD" Member="HOPDONG" ThisKey="MAHD" OtherKey="MAHD" Type="HOPDONG" IsForeignKey="true" />
+      <Association Name="SANPHAM_CTHD" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THUCHI" Member="THUCHIs">
+    <Type Name="THUCHI">
+      <Column Name="MAKHOAN" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MA_GD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENKHOAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYTH" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGUOITH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGUOINHAN" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TIEN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LOAIHINHTT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="GIAODICH_THUCHI" Member="GIAODICH" ThisKey="MA_GD" OtherKey="MA_GD" Type="GIAODICH" IsForeignKey="true"  />
+    </Type>
+  </Table>
+  <Table Name="dbo.GIAODICH" Member="GIAODICHes">
+    <Type Name="GIAODICH">
+      <Column Name="MA_GD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TEN_GD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYGD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DIADIEMGD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="GIAODICH_THUCHI" Member="THUCHIs" ThisKey="MA_GD" OtherKey="MA_GD" Type="THUCHI" />
+      <Association Name="HOPDONG_GIAODICH" Member="HOPDONG" ThisKey="MAHD" OtherKey="MAHD" Type="HOPDONG" IsForeignKey="true"  />
+    </Type>
+  </Table>
+  <Table Name="dbo.GUI_MAIL" Member="GUI_MAILs">
+    <Type Name="GUI_MAIL">
+      <Column Name="MA_GM" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNGGM" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TG_GUI" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACHHANG_GUI_MAIL" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_GUI_MAIL" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOPDONG" Member="HOPDONGs">
+    <Type Name="HOPDONG">
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYKY" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYBD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYKT" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="TRIGIA" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="HOPDONG_CTHD" Member="CTHDs" ThisKey="MAHD" OtherKey="MAHD" Type="CTHD" />
+      <Association Name="HOPDONG_GIAODICH" Member="GIAODICHes" ThisKey="MAHD" OtherKey="MAHD" Type="GIAODICH" />
+      <Association Name="KHACHHANG_HOPDONG" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOPDONG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOTRO" Member="HOTROs">
+    <Type Name="HOTRO">
+      <Column Name="MAHT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TG_HT" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACHHANG_HOTRO" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOTRO" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IndexNhanVien" Member="IndexNhanViens">
+    <Type Name="IndexNhanVien">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANHOMKH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHIKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SODIENTHOAI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="KHACHHANG_GUI_MAIL" Member="GUI_MAILs" ThisKey="MAKH" OtherKey="MAKH" Type="GUI_MAIL" />
+      <Association Name="KHACHHANG_HOPDONG" Member="HOPDONGs" ThisKey="MAKH" OtherKey="MAKH" Type="HOPDONG" />
+      <Association Name="KHACHHANG_HOTRO" Member="HOTROs" ThisKey="MAKH" OtherKey="MAKH" Type="HOTRO" />
+      <Association Name="KHACHHANG_LICHHEN" Member="LICHHENs" ThisKey="MAKH" OtherKey="MAKH" Type="LICHHEN" />
+      <Association Name="NHOM_KH_KHACHHANG" Member="NHOM_KH" ThisKey="MANHOMKH" OtherKey="MANHOMKH" Type="NHOM_KH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LICHHEN" Member="LICHHENs">
+    <Type Name="LICHHEN">
+      <Column Name="MA_LH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYHEN" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYGAP" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNG_LH" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACHHANG_LICHHEN" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_LICHHEN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGUOIDUNG" Member="NGUOIDUNGs">
+    <Type Name="NGUOIDUNG">
+      <Column Name="TEN_ND" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANHOMND" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_NGUOIDUNG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+      <Association Name="NHOM_ND_NGUOIDUNG" Member="NHOM_ND" ThisKey="MANHOMND" OtherKey="MANHOMND" Type="NHOM_ND" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
+    <Type Name="NHANVIEN">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENNV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ANH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_GUI_MAIL" Member="GUI_MAILs" ThisKey="MANV" OtherKey="MANV" Type="GUI_MAIL" />
+      <Association Name="NHANVIEN_HOPDONG" Member="HOPDONGs" ThisKey="MANV" OtherKey="MANV" Type="HOPDONG" />
+      <Association Name="NHANVIEN_HOTRO" Member="HOTROs" ThisKey="MANV" OtherKey="MANV" Type="HOTRO" />
+      <Association Name="NHANVIEN_LICHHEN" Member="LICHHENs" ThisKey="MANV" OtherKey="MANV" Type="LICHHEN" />
+      <Association Name="NHANVIEN_NGUOIDUNG" Member="NGUOIDUNGs" ThisKey="MANV" OtherKey="MANV" Type="NGUOIDUNG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHOM_KH" Member="NHOM_KHs">
+    <Type Name="NHOM_KH">
+      <Column Name="MANHOMKH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENNHOMKH" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Association Name="NHOM_KH_KHACHHANG" Member="KHACHHANGs" ThisKey="MANHOMKH" OtherKey="MANHOMKH" Type="KHACHHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHOM_ND" Member="NHOM_NDs">
+    <Type Name="NHOM_ND">
+      <Column Name="MANHOMND" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENNHOMND" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="NHOM_ND_NGUOIDUNG" Member="NGUOIDUNGs" ThisKey="MANHOMND" OtherKey="MANHOMND" Type="NGUOIDUNG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM" Member="SANPHAMs">
+    <Type Name="SANPHAM">
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENSP" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="NUOCSX" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="GIASP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DONVI" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NGAYSX" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="SANPHAM_CTHD" Member="CTHDs" ThisKey="MASP" OtherKey="MASP" Type="CTHD" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetCTHD" Method="GetCTHD">
+    <Parameter Name="_MACTHD" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetCTHDResult">
+      <Column Name="MACTHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTopMaThuChi" Method="GetTopMaThuChi">
+    <Parameter Name="_MaTC" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetGIAODICH" Method="GetGIAODICH">
+    <Parameter Name="_MA_GD" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetGIAODICHResult">
+      <Column Name="MA_GD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TEN_GD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYGD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DIADIEMGD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetGUI_MAIL" Method="GetGUI_MAIL">
+    <Parameter Name="_MA_GM" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetGUI_MAILResult">
+      <Column Name="MA_GM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNGGM" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TG_GUI" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetHOPDONG" Method="GetHOPDONG">
+    <Parameter Name="_MAHD" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetHOPDONGResult">
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYKY" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYBD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYKT" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="TRIGIA" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetHOTRO" Method="GetHOTRO">
+    <Parameter Name="_MAHT" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetHOTROResult">
+      <Column Name="MAHT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TG_HT" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getIndex" Method="getIndex">
+    <Parameter Name="_Index" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetIndexNV" Method="GetIndexNV">
+    <ElementType Name="GetIndexNVResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetKHACHHANG" Method="GetKHACHHANG">
+    <Parameter Name="_MAKH" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetKHACHHANGResult">
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANHOMKH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHIKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SODIENTHOAI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetLICHHEN" Method="GetLICHHEN">
+    <Parameter Name="_MA_LH" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetLICHHENResult">
+      <Column Name="MA_LH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYHEN" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYGAP" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNG_LH" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetNGUOIDUNG" Method="GetNGUOIDUNG">
+    <Parameter Name="_TEN_ND" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetNGUOIDUNGResult">
+      <Column Name="TEN_ND" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MANHOMND" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetNHANVIEN" Method="GetNHANVIEN">
+    <Parameter Name="_MANV" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetNHANVIENResult">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ANH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetNHOM_KH" Method="GetNHOM_KH">
+    <Parameter Name="_MANHOMKH" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetNHOM_KHResult">
+      <Column Name="MACTHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAHD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetNHOM_ND" Method="GetNHOM_ND">
+    <Parameter Name="_MANHOMND" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetNHOM_NDResult">
+      <Column Name="MANHOMND" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNHOMND" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSANPHAM" Method="GetSANPHAM">
+    <Parameter Name="_MASP" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetSANPHAMResult">
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENSP" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="NUOCSX" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="GIASP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DONVI" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NGAYSX" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTHUCHI" Method="GetTHUCHI">
+    <Parameter Name="_MAKHOAN" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="GetTHUCHIResult">
+      <Column Name="MAKHOAN" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MA_GD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENKHOAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYTH" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NGUOITH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGUOINHAN" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TIEN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LOAIHINHTT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTopGiaoDich" Method="GetTopGiaoDich">
+    <Parameter Name="_MaGD" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopGuiMail" Method="GetTopGuiMail">
+    <Parameter Name="_MaGM" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaCTHD" Method="GetTopMaCTHD">
+    <Parameter Name="_MaCTHD" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaHopDong" Method="GetTopMaHopDong">
+    <Parameter Name="_MaHD" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaHoTro" Method="GetTopMaHoTro">
+    <Parameter Name="_MaHT" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaKhachHang" Method="GetTopMaKhachHang">
+    <Parameter Name="_MaKH" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaLH" Method="GetTopMaLH">
+    <Parameter Name="_MaLH" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaNhomKhachHang" Method="GetTopMaNhomKhachHang">
+    <Parameter Name="_MaNKH" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaNhomNguoiDung" Method="GetTopMaNhomNguoiDung">
+    <Parameter Name="_MaNGD" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaNV" Method="GetTopMaNV">
+    <Parameter Name="_MaNV" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTopMaSanPham" Method="GetTopMaSanPham">
+    <Parameter Name="_MaSP" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
