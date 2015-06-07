@@ -29,7 +29,7 @@ namespace Main.GUI
         IndexNhanVien _ind = new IndexNhanVien();
         FileStream stream;
         String _pathOld;
-        int _index;
+     
        
        
         public  FormNhanVien()
@@ -41,19 +41,13 @@ namespace Main.GUI
             dtgrid_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.Width = dtgrid_NhanVien.Width;
             pbAnhNV.SizeMode = PictureBoxSizeMode.StretchImage;
-           //_index = id();
+         
           
             
 
         }
 
-        //int _id;
-        //public int id()
-        //{
-            
-        //   // data.getIndex(ref _id);
-
-        //}
+     
         public void Refresh()
         {
            
@@ -249,7 +243,7 @@ namespace Main.GUI
 
                     ImagePath = dlg.FileName;
                     var uri = new Uri(ImagePath);
-                    stream = new FileStream("../Debug/Image/" + (_index + 1) + ".png", FileMode.Create);
+                    stream = new FileStream("../Debug/Image/" + _nhanvien.MANV + ".png", FileMode.Create);
                     PngBitmapEncoder encoder = new PngBitmapEncoder();
                     encoder.Interlace = PngInterlaceOption.On;
                     encoder.Frames.Add(BitmapFrame.Create(uri));
@@ -258,7 +252,7 @@ namespace Main.GUI
                     stream.Close();
                     ImagePath = stream.Name;
                     pbAnhNV.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                    URL.Text = (_index + 1).ToString() + ".png";
+                    URL.Text = txtMaNv.Text + ".png";
 
                 }
   
