@@ -10,6 +10,3 @@ c:\users\quoc\documents\visual studio 2013\Projects\QuanLyQuanHeKhachhang\Main\o
 C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormGiaoDich.resources
 C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormGioiThieu.resources
 C:\Users\Quoc\Documents\Visual Studio 2013\Projects\QuanLyQuanHeKhachhang\Main\obj\Debug\Main.GUI.FormHoaDon.resources
-C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\bin\Debug\Main.exe.config
-C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\obj\Debug\Main.exe
-C:\Users\Tai\Desktop\QuanLyQuanHeKhachHang\Main\obj\Debug\Main.pdb

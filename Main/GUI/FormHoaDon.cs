@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Main.BUS;
 
 namespace Main.GUI
 {
     public partial class FormHoaDon : Form
     {
-
-        QLKhachHangDataContext data = new QLKhachHangDataContext();
-        CTHD _hoadon = new CTHD();
+        QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
+        
         HOPDONG _hopdong = new HOPDONG();
         SANPHAM _sanpham = new SANPHAM();
+        CTHD _hoadon = new CTHD();
 
-   
+        private List<SANPHAM> _listSanPham;
+        private List<HOPDONG> _listHopDong;
+        private List<CTHD> _listCTHD;
 
+
+        private CTHD _selected = null;
         public FormHoaDon()
         {
             InitializeComponent();
@@ -27,89 +32,111 @@ namespace Main.GUI
             this.StartPosition = FormStartPosition.CenterScreen;
             dtgrid_HoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Width = dtgrid_HoaDon.Width;
+        }
+
+        private void FormHoaDon_Load(object sender, EventArgs e)
+        {
+            _listHopDong = data.HOPDONGs.ToList();
+            _listSanPham = data.SANPHAMs.ToList();
+            _listCTHD = data.CTHDs.ToList();
+
+            cbtMHD.DataSource = _listHopDong;
+            cbtMHD.DisplayMembers = "TenHD";
+
+            cbtMSP.DataSource = _listSanPham;
+            cbtMSP.DisplayMembers = "TenSP";
+
+            cbtTimKiem.DataSource = _listHopDong;
+            cbtTimKiem.DisplayMembers = "TenHD";
 
             txtGia.Text = TinhTien().ToString();
+            Refresh();
         }
-         public void Refresh()
+        public void Refresh()
         {
-            txtMHD.Enabled = false;
-            var list = from hoadon in data.CTHDs
-                       select hoadon;
+            dtgrid_HoaDon.Rows.Clear();
+            if (_listCTHD.Count == 0)
+                dtgrid_HoaDon.RowCount = _listCTHD.Count + 1;
+            else
+                dtgrid_HoaDon.RowCount = _listCTHD.Count;
 
-           dtgrid_HoaDon.DataSource = list;
-           var sanp = from sanpham in data.SANPHAMs
-                      select sanpham;
-           cbtMSP.DataSource = sanp;
-           cbtMSP.DisplayMembers = "MASP";
-           cbtMSP.ValueMember = "MASP";
+            for(int i = 0; i < _listCTHD.Count; i++)
+            {
+                dtgrid_HoaDon.Rows[i].Cells["SoLuong"].Value = _listCTHD[i].SoLuong;
+                dtgrid_HoaDon.Rows[i].Cells["ThanhTien"].Value = _listCTHD[i].ThanhTien;
+                dtgrid_HoaDon.Rows[i].Cells["MaSP"].Value = _listCTHD[i].MaSP;
+                dtgrid_HoaDon.Rows[i].Cells["MaHD"].Value = _listCTHD[i].MaHD;
 
-           var hd = from hopdong in data.HOPDONGs
-                    select hopdong;
-           cbtMHD.DataSource = hd;
-           cbtMHD.DisplayMembers = "MAHD";
-           cbtMHD.ValueMember = "MAHD";
-}
-         string _mahd;
-        public string generMa()
-         {
-             data.GetTopMaCTHD(ref _mahd);
-             Basic bs = new Basic();
-             return bs.GenerMa(_mahd);
-         }
+                foreach(SANPHAM sp in _listSanPham)
+                {
+                    if(sp.MaSP.Equals(_listCTHD[i].MaSP))
+                    {
+                        dtgrid_HoaDon.Rows[i].Cells["TenSP"].Value = sp.TenSP;
+                        break;
+                    }
+                }
+
+                foreach (HOPDONG hd in _listHopDong)
+                {
+                    if (hd.MaHD.Equals(_listCTHD[i].MaHD))
+                    {
+                        dtgrid_HoaDon.Rows[i].Cells["TenHD"].Value = hd.TenHD;
+                        break;
+                    }
+                }
+            }
+        }
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            if(buttonLuu.Enabled == true)
+            {
+                btnThem.Enabled = true;
+                btnXoa.Enabled = true;
+                cbtMHD.Enabled = true;
+                cbtMSP.Enabled = true;
+                buttonLuu.Enabled = false;
+            }
+            else
+                this.Close();
         }
 
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            cbtMHD.Text = "";
-            cbtMSP.Text = "";
-            txtGia.Text = "";
-            txtMHD.Text = generMa(); ;
-            txtSL.Value = 0;
-            
-        }
-
-        private void FormHoaDon_Load(object sender, EventArgs e)
-        {
-            Refresh();
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            txtMHD.Enabled = false;
             try
             {
-                _hoadon.MACTHD = txtMHD.Text;
-                _hoadon.MASP = cbtMSP.Text;
-                _hoadon.MAHD = cbtMHD.Text;
-                _hoadon.SOLUONG = (int)txtSL.Value;
-                _hoadon.THANHTIEN = (float)Convert.ToDouble(txtGia.Text.ToString());
+                _hoadon.MaSP = _listSanPham.ElementAt(cbtMSP.SelectedIndex).MaSP;
+                _hoadon.MaHD = _listHopDong[cbtMHD.SelectedIndex].MaHD;
+                _hoadon.SoLuong = (int)txtSL.Value;
+                _hoadon.ThanhTien = (float)Convert.ToDouble(txtGia.Text.ToString());
 
                 data.CTHDs.InsertOnSubmit(_hoadon);
                 data.SubmitChanges();
-                MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }catch(Exception ex)
+                MessageBox.Show("Them thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _listCTHD = data.CTHDs.ToList();
+                Refresh();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Quản lý hóa đơn");
             }
-            Refresh();
         }
 
+      
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            txtMHD.Enabled = false;
-            _hoadon = data.CTHDs.Where(hd => hd.MACTHD == txtMHD.Text).SingleOrDefault<CTHD>();
             try
             {
-                if(_hoadon != null)
+                if(_selected != null)
                 {
+                    _hoadon = data.CTHDs.Where(hd => hd.MaHD == _selected.MaHD && hd.MaSP == _selected.MaSP).SingleOrDefault<CTHD>();
                     data.CTHDs.DeleteOnSubmit(_hoadon);
                     data.SubmitChanges();
                     MessageBox.Show("Xóa thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    _selected = null;
+                    _listCTHD = data.CTHDs.ToList();
                 }else
                     MessageBox.Show("Xóa thất bại","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
@@ -121,63 +148,114 @@ namespace Main.GUI
         }
         public float TinhTien()
         {
-            int Soluong = (int)txtSL.Value;
-            float Gia = (float)Convert.ToDouble(data.SANPHAMs.Where(sp=> sp.MASP == cbtMSP.Text).SingleOrDefault<SANPHAM>());
-            return  (float)Soluong * Gia;
+            if (cbtMSP.SelectedIndex < 0) return 0;
 
+            int Soluong = (int)txtSL.Value;
+            _sanpham = data.SANPHAMs.Where(sp => sp.MaSP == _listSanPham[cbtMSP.SelectedIndex].MaSP).SingleOrDefault<SANPHAM>();
+            float Gia = (float)Convert.ToDouble(_sanpham.GiaSP);
+            return  (float)Soluong * Gia;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            txtMHD.Enabled = false;
-            
-            _hoadon = data.CTHDs.Where(hd => hd.MACTHD == txtMHD.Text).SingleOrDefault<CTHD>();
-            try
-            {
-                if (_hoadon != null)
-                {
-                    _hoadon.MAHD = cbtMHD.Text;
-                    _hoadon.MASP = cbtMSP.Text;
-                    _hoadon.SOLUONG = (int)txtSL.Value;
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            buttonLuu.Enabled = true;
 
-                    _hoadon.THANHTIEN = (float)Convert.ToDouble(txtGia.Text);
-
-                    data.SubmitChanges();
-                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                else
-                    MessageBox.Show("Cập nhật không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Quản lý hóa đơn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            Refresh();
+            cbtMHD.Enabled = false;
+            cbtMSP.Enabled = false;
         }
 
         private void dtgrid_HoaDon_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            txtMHD.Enabled = false;
-            int row = e.RowIndex;
-           try {
+           //int row = e.RowIndex;
+           //if (row < 0) return;
+           //try {
 
-               txtMHD.Text = dtgrid_HoaDon.Rows[row].Cells[0].Value.ToString().Trim();
-               txtGia.Text = dtgrid_HoaDon.Rows[row].Cells[4].Value.ToString().Trim();
-               txtSL.Value = (int)Convert.ToInt32(dtgrid_HoaDon.Rows[row].Cells[3].Value);
-               cbtMHD.Text = dtgrid_HoaDon.Rows[row].Cells[2].Value.ToString().Trim();
-               cbtMSP.Text = dtgrid_HoaDon.Rows[row].Cells[3].Value.ToString().Trim() ;
-            }
-            catch(Exception ex)
-           {
-               MessageBox.Show(ex.Message, "Quản lý hóa đơn");
-           }
+           //        txtGia.Text = dtgrid_HoaDon.Rows[row].Cells["Gia"].Value.ToString().Trim();
+           //        txtSL.Value = (int)Convert.ToInt32(dtgrid_HoaDon.Rows[row].Cells["SoLuong"].Value);
+           //        cbtMHD.Text = dtgrid_HoaDon.Rows[row].Cells[""].Value.ToString().Trim();
+           //        cbtMSP.Text = dtgrid_HoaDon.Rows[row].Cells[3].Value.ToString().Trim() ;
+           // }
+           // catch(Exception ex)
+           //{
+           //    MessageBox.Show(ex.Message, "Quản lý hóa đơn");
+           //}
         }
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            var list = from hoadon in data.CTHDs
-                       where (hoadon.MACTHD.Contains(txtTimKiem.Text) || hoadon.MAHD.Contains(txtTimKiem.Text) || hoadon.MASP.Contains(txtTimKiem.Text))
-                       select hoadon;
-            dtgrid_HoaDon.DataSource = list;
+            _listCTHD = (from hoadon in data.CTHDs
+                       where (hoadon.MaHD.Contains(_listHopDong[cbtTimKiem.SelectedIndex].MaHD))
+                       select hoadon).ToList<CTHD>();
+
+            Refresh();
+        }
+
+        private void dtgrid_HoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < _listCTHD.Count)
+            {
+                _selected = new CTHD();
+                _selected.MaHD = dtgrid_HoaDon.Rows[e.RowIndex].Cells["MaHD"].Value.ToString();
+                _selected.MaSP = dtgrid_HoaDon.Rows[e.RowIndex].Cells["MaSP"].Value.ToString();
+                _selected.SoLuong = Convert.ToInt32(dtgrid_HoaDon.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString());
+                _selected.ThanhTien = Convert.ToInt32(dtgrid_HoaDon.Rows[e.RowIndex].Cells["ThanhTien"].Value.ToString());
+
+
+                txtGia.Text = _selected.ThanhTien.ToString();
+                txtSL.Value = _selected.SoLuong;
+                cbtMHD.Text = _selected.MaHD.ToString().Trim();
+                cbtMSP.Text = _selected.MaSP.ToString().Trim();
+            }
+            else
+                _selected = null;
+        }
+
+        private void txtSL_ValueChanged(object sender, EventArgs e)
+        {
+            int Soluong = (int)txtSL.Value;   
+            float Gia = (float)Convert.ToDouble(_sanpham.GiaSP) * Soluong;
+            txtGia.Text = Gia.ToString();
+        }
+
+        private void cbtMSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtGia.Text = TinhTien().ToString();
+        }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn cập nhật!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+
+            _hoadon = data.CTHDs.Where(hd => hd.MaHD == _selected.MaHD && hd.MaSP == _selected.MaSP).SingleOrDefault<CTHD>();
+            try
+            {
+                if (_hoadon != null)
+                {
+                    _hoadon.SoLuong = (int)txtSL.Value;
+                    _hoadon.ThanhTien = (float)Convert.ToDouble(txtGia.Text);
+
+                    data.SubmitChanges();
+                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cbtMHD.Enabled = true;
+                    cbtMSP.Enabled = true;
+                    buttonLuu.Enabled = false;
+                    btnXoa.Enabled = true;
+                    btnThem.Enabled = true;
+
+                    _listCTHD = data.CTHDs.ToList();
+                    Refresh();
+                }
+                else
+                    MessageBox.Show("Cập nhật không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Quản lý hóa đơn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

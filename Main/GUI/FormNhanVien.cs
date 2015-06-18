@@ -17,21 +17,19 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Main.BUS;
 
 namespace Main.GUI
 {
-
     public partial class FormNhanVien : Form
     {
-
-        QLKhachHangDataContext data = new QLKhachHangDataContext();
+        QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         NHANVIEN _nhanvien = new NHANVIEN();
-        IndexNhanVien _ind = new IndexNhanVien();
         FileStream stream;
         String _pathOld;
-     
-       
-       
+
+        private List<NHANVIEN> _listNhanVien;
+
         public  FormNhanVien()
         {
             InitializeComponent();
@@ -41,51 +39,39 @@ namespace Main.GUI
             dtgrid_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.Width = dtgrid_NhanVien.Width;
             pbAnhNV.SizeMode = PictureBoxSizeMode.StretchImage;
-         
-          
-            
-
         }
 
      
-        public void Refresh()
+        public void showDataOnGridView()
         {
-           
-            var list = from load in data.NHANVIENs
-                       select load;
-            dtgrid_NhanVien.DataSource = list;
-            dtgrid_NhanVien.Columns["MANV"].HeaderText = "Mã nhân viên";
-            dtgrid_NhanVien.Columns["TENNV"].HeaderText = "Tên nhân viên";
-            dtgrid_NhanVien.Columns["NGAYSINH"].HeaderText = "Ngày sinh";
-            dtgrid_NhanVien.Columns["DIACHI"].HeaderText = "Địa chỉ";
+            dtgrid_NhanVien.DataSource = _listNhanVien;
+            dtgrid_NhanVien.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dtgrid_NhanVien.Columns["TenNV"].HeaderText = "Tên nhân viên";
+            dtgrid_NhanVien.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+            dtgrid_NhanVien.Columns["DiaChi"].HeaderText = "Địa chỉ";
             dtgrid_NhanVien.Columns["SDT"].HeaderText = "Số điện thoại";
             dtgrid_NhanVien.Columns["CMND"].HeaderText = "Chứng minh nhân dân";
-            dtgrid_NhanVien.Columns["ANH"].HeaderText = "Ảnh đại diện";
-            dtgrid_NhanVien.Columns["LUONG"].HeaderText = "Lương";
-            dtgrid_NhanVien.Columns["EMAIL"].HeaderText = "Email";
-         
+            dtgrid_NhanVien.Columns["Anh"].HeaderText = "Ảnh đại diện";
+            dtgrid_NhanVien.Columns["Luong"].HeaderText = "Lương";
+            dtgrid_NhanVien.Columns["Email"].HeaderText = "Email";        
         }
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
-            Refresh();
-
+            _listNhanVien = data.NHANVIENs.ToList();
+            showDataOnGridView();
         }
 
-        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
-        {
-        }
-        string _manv;
+
         public string GenerMaNV()
         {
-            
+            string _manv = "";
             data.GetTopMaNV(ref _manv);
-            Basic bc = new Basic();
-            return bc.GenerMa(_manv);
+            Basic bc = new Basic(_manv);
+            return bc.GenerMaNhanVien(_manv);
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-       
             txtCMND.Text ="";
             txtDiaChi.Text = "";
             txtEmail.Text = "";
@@ -95,13 +81,11 @@ namespace Main.GUI
             txtTenNV.Text = "";
             dtNgaySinh.Text = "";
             txtMaNv.Enabled = false;
-
         }
 
   
         private void dtgrid_NhanVien_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaNv.Enabled = false;
             int row = e.RowIndex;
            
             try
@@ -131,40 +115,36 @@ namespace Main.GUI
             txtMaNv.Enabled = false;
             try
             {
-                
-                _nhanvien.MANV = txtMaNv.Text;
-                _nhanvien.TENNV = txtTenNV.Text;
-                _nhanvien.NGAYSINH = dtNgaySinh.Text;
-                _nhanvien.DIACHI = txtDiaChi.Text;
+                _nhanvien.MaNV = txtMaNv.Text;
+                _nhanvien.TenNV = txtTenNV.Text;
+                _nhanvien.NgaySinh = dtNgaySinh.Value;
+                _nhanvien.DiaChi = txtDiaChi.Text;
                 _nhanvien.SDT = (int)Convert.ToInt32(txtSDT.Text);
                 _nhanvien.CMND = (int)Convert.ToInt32(txtCMND.Text);
-                _nhanvien.ANH = URL.Text.ToString();
-                _nhanvien.LUONG = (float)Convert.ToDouble(txtLuong.Text);
-                _nhanvien.EMAIL = txtEmail.Text;
+                _nhanvien.Anh = URL.Text.ToString();
+                _nhanvien.Luong = (float)Convert.ToDouble(txtLuong.Text);
+                _nhanvien.Email = txtEmail.Text;
                 data.NHANVIENs.InsertOnSubmit(_nhanvien);
-                _ind.Id = _index + 1;
+                //_ind.Id = _index + 1;
                 data.SubmitChanges();
-                Refresh();
+                showDataOnGridView();
                 System.Windows.Forms.MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
             }catch(Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message, "Quản lý nhân viên");
             }
-          
         }
 
         private void btXoa_Click(object sender, EventArgs e) 
         {
             try
             {
-                _nhanvien = data.NHANVIENs.Where(nv => nv.MANV == txtMaNv.Text).SingleOrDefault<NHANVIEN>();
+                _nhanvien = data.NHANVIENs.Where(nv => nv.MaNV == txtMaNv.Text).SingleOrDefault<NHANVIEN>();
                 if (_nhanvien != null)
                 {
                     data.NHANVIENs.DeleteOnSubmit(_nhanvien);
                     data.SubmitChanges();
-                    Refresh();
+                    showDataOnGridView();
                     System.Windows.Forms.MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -179,21 +159,20 @@ namespace Main.GUI
 
         private void btSua_Click(object sender, EventArgs e)
         {
-            txtMaNv.Enabled = false;
             try{
               
-                _nhanvien = data.NHANVIENs.Where(nv => nv.MANV == txtMaNv.Text).SingleOrDefault<NHANVIEN>();
+                _nhanvien = data.NHANVIENs.Where(nv => nv.MaNV == txtMaNv.Text).SingleOrDefault<NHANVIEN>();
                 if (_nhanvien != null)
                 {
-                    _nhanvien.MANV = txtMaNv.Text;
-                    _nhanvien.TENNV = txtTenNV.Text;
-                    _nhanvien.NGAYSINH = dtNgaySinh.Text;
-                    _nhanvien.DIACHI = txtDiaChi.Text;
+                    _nhanvien.MaNV = txtMaNv.Text;
+                    _nhanvien.TenNV = txtTenNV.Text;
+                    _nhanvien.NgaySinh = dtNgaySinh.Value;
+                    _nhanvien.DiaChi = txtDiaChi.Text;
                     _nhanvien.SDT = (int)Convert.ToInt32(txtSDT.Text);
                     _nhanvien.CMND = (int)Convert.ToInt32(txtCMND.Text);
-                    _nhanvien.ANH = URL.Text.ToString(); ;
-                    _nhanvien.LUONG = (float)Convert.ToDouble(txtLuong.Text);
-                    _nhanvien.EMAIL = txtEmail.Text;
+                    _nhanvien.Anh = URL.Text.ToString(); ;
+                    _nhanvien.Luong = (float)Convert.ToDouble(txtLuong.Text);
+                    _nhanvien.Email = txtEmail.Text;
                    
                     data.SubmitChanges();
                  
@@ -209,27 +188,26 @@ namespace Main.GUI
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message, "Quản lý nhân viên");
             }
-            Refresh();
+            showDataOnGridView();
           
         }
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            var list = from _nhanvien in data.NHANVIENs
-                       where (_nhanvien.MANV.Contains(txtTimKiem.Text) || _nhanvien.TENNV.Contains(txtTimKiem.Text))
-                       select _nhanvien;
-            dtgrid_NhanVien.DataSource = list;
+            _listNhanVien = (from _nhanvien in data.NHANVIENs
+                       where (_nhanvien.MaNV.Contains(txtTimKiem.Text) || _nhanvien.TenNV.Contains(txtTimKiem.Text))
+                       select _nhanvien).ToList();
+
+            showDataOnGridView();
         }
 
         private void btnCSDL_Click(object sender, EventArgs e)
         {
-            Refresh();
+            showDataOnGridView();
         }
 
         private void btnAnhNV_Click(object sender, EventArgs e)
         {
-
-
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
             dlg.Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif";
@@ -238,26 +216,22 @@ namespace Main.GUI
 
             if (result == true)
             {
-         
-                      
-
-                    ImagePath = dlg.FileName;
-                    var uri = new Uri(ImagePath);
-                    stream = new FileStream("../Debug/Image/" + _nhanvien.MANV + ".png", FileMode.Create);
-                    PngBitmapEncoder encoder = new PngBitmapEncoder();
-                    encoder.Interlace = PngInterlaceOption.On;
-                    encoder.Frames.Add(BitmapFrame.Create(uri));
-                    encoder.Save(stream);
-                    stream.Flush();
-                    stream.Close();
-                    ImagePath = stream.Name;
-                    pbAnhNV.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                    URL.Text = txtMaNv.Text + ".png";
-
-                }
-  
+                ImagePath = dlg.FileName;
+                var uri = new Uri(ImagePath);
+                stream = new FileStream("../Debug/Image/" + _nhanvien.MaNV + ".png", FileMode.Create);
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Interlace = PngInterlaceOption.On;
+                encoder.Frames.Add(BitmapFrame.Create(uri));
+                encoder.Save(stream);
+                stream.Flush();
+                stream.Close();
+                ImagePath = stream.Name;
+                pbAnhNV.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                URL.Text = txtMaNv.Text + ".png";
+            }
         }
-   private System.Drawing.Image GetHinhAnhTuPoster(string _Poster)
+   
+        private System.Drawing.Image GetHinhAnhTuPoster(string _Poster)
         {
             BitmapImage bImg = new BitmapImage();
 
@@ -272,11 +246,14 @@ namespace Main.GUI
             return img;
         }
 
-
-
-
+  
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (System.Windows.Forms.MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
    }
-
-            
 }
     
