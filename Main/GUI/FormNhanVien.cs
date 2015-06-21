@@ -23,6 +23,7 @@ namespace Main.GUI
 {
     public partial class FormNhanVien : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
         QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         NHANVIEN _nhanvien = new NHANVIEN();
         FileStream stream;
@@ -30,7 +31,7 @@ namespace Main.GUI
 
         private List<NHANVIEN> _listNhanVien;
 
-        public  FormNhanVien()
+        public FormNhanVien(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
             
@@ -39,6 +40,7 @@ namespace Main.GUI
             dtgrid_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.Width = dtgrid_NhanVien.Width;
             pbAnhNV.SizeMode = PictureBoxSizeMode.StretchImage;
+            _tabControl = tabControl;
         }
 
      
@@ -81,6 +83,9 @@ namespace Main.GUI
             txtTenNV.Text = "";
             dtNgaySinh.Text = "";
             txtMaNv.Enabled = false;
+
+            _listNhanVien = data.NHANVIENs.ToList();
+            showDataOnGridView();
         }
 
   
@@ -101,7 +106,6 @@ namespace Main.GUI
                 _pathOld = dtgrid_NhanVien.Rows[row].Cells[6].Value.ToString();
                 URL.Text = _pathOld;
                 pbAnhNV.Image = GetHinhAnhTuPoster(_pathOld);
-
             }
             catch (Exception ex)
             {
@@ -252,6 +256,7 @@ namespace Main.GUI
             if (System.Windows.Forms.MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
    }

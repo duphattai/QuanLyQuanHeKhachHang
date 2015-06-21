@@ -42,6 +42,7 @@ namespace Main.BUS
                 {
                     MessageBox.Show(ex.Message, "Thông báo");
                     Application.Exit();
+                    return null;
                 }
             }
 

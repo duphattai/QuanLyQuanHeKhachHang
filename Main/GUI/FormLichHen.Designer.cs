@@ -29,9 +29,18 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.cbtTenNV = new DevComponents.DotNetBar.Controls.ComboTree();
-            this.cbtTenKH = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.cbbTenKH = new System.Windows.Forms.ComboBox();
+            this.cbbTenNV = new System.Windows.Forms.ComboBox();
             this.dtgrid_LichHen = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayHen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayGap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung_LH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTimeNgayGap = new System.Windows.Forms.DateTimePicker();
             this.dTimeNgayHen = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,15 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayHen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayGap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung_LH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_LichHen)).BeginInit();
             this.SuspendLayout();
@@ -65,8 +65,8 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.cbtTenNV);
-            this.panelEx1.Controls.Add(this.cbtTenKH);
+            this.panelEx1.Controls.Add(this.cbbTenKH);
+            this.panelEx1.Controls.Add(this.cbbTenNV);
             this.panelEx1.Controls.Add(this.dtgrid_LichHen);
             this.panelEx1.Controls.Add(this.dTimeNgayGap);
             this.panelEx1.Controls.Add(this.dTimeNgayHen);
@@ -98,43 +98,21 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // cbtTenNV
+            // cbbTenKH
             // 
-            this.cbtTenNV.BackColor = System.Drawing.SystemColors.Window;
+            this.cbbTenKH.FormattingEnabled = true;
+            this.cbbTenKH.Location = new System.Drawing.Point(345, 206);
+            this.cbbTenKH.Name = "cbbTenKH";
+            this.cbbTenKH.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenKH.TabIndex = 57;
             // 
+            // cbbTenNV
             // 
-            // 
-            this.cbtTenNV.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTenNV.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTenNV.ButtonClear.Tooltip = "";
-            this.cbtTenNV.ButtonCustom.Tooltip = "";
-            this.cbtTenNV.ButtonCustom2.Tooltip = "";
-            this.cbtTenNV.ButtonDropDown.Tooltip = "";
-            this.cbtTenNV.ButtonDropDown.Visible = true;
-            this.cbtTenNV.Location = new System.Drawing.Point(344, 154);
-            this.cbtTenNV.Name = "cbtTenNV";
-            this.cbtTenNV.Size = new System.Drawing.Size(100, 23);
-            this.cbtTenNV.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTenNV.TabIndex = 56;
-            // 
-            // cbtTenKH
-            // 
-            this.cbtTenKH.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtTenKH.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTenKH.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTenKH.ButtonClear.Tooltip = "";
-            this.cbtTenKH.ButtonCustom.Tooltip = "";
-            this.cbtTenKH.ButtonCustom2.Tooltip = "";
-            this.cbtTenKH.ButtonDropDown.Tooltip = "";
-            this.cbtTenKH.ButtonDropDown.Visible = true;
-            this.cbtTenKH.Location = new System.Drawing.Point(345, 201);
-            this.cbtTenKH.Name = "cbtTenKH";
-            this.cbtTenKH.Size = new System.Drawing.Size(100, 23);
-            this.cbtTenKH.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTenKH.TabIndex = 55;
+            this.cbbTenNV.FormattingEnabled = true;
+            this.cbbTenNV.Location = new System.Drawing.Point(345, 155);
+            this.cbbTenNV.Name = "cbbTenNV";
+            this.cbbTenNV.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenNV.TabIndex = 56;
             // 
             // dtgrid_LichHen
             // 
@@ -149,11 +127,71 @@
             this.NgayHen,
             this.NgayGap,
             this.NoiDung_LH});
-            this.dtgrid_LichHen.Location = new System.Drawing.Point(119, 279);
+            this.dtgrid_LichHen.Location = new System.Drawing.Point(119, 337);
             this.dtgrid_LichHen.Name = "dtgrid_LichHen";
-            this.dtgrid_LichHen.Size = new System.Drawing.Size(850, 151);
+            this.dtgrid_LichHen.Size = new System.Drawing.Size(850, 108);
             this.dtgrid_LichHen.TabIndex = 54;
             this.dtgrid_LichHen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_LichHen_CellClick);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
+            // 
+            // MaLH
+            // 
+            this.MaLH.HeaderText = "Mã lịch hẹn";
+            this.MaLH.Name = "MaLH";
+            // 
+            // MaNV
+            // 
+            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.Visible = false;
+            // 
+            // TenNV
+            // 
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
+            this.TenNV.Width = 120;
+            // 
+            // MaKH
+            // 
+            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Visible = false;
+            // 
+            // TenKH
+            // 
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            this.TenKH.Width = 120;
+            // 
+            // NgayHen
+            // 
+            this.NgayHen.HeaderText = "Ngày hẹn";
+            this.NgayHen.Name = "NgayHen";
+            this.NgayHen.ReadOnly = true;
+            this.NgayHen.Width = 110;
+            // 
+            // NgayGap
+            // 
+            this.NgayGap.HeaderText = "Ngày gặp";
+            this.NgayGap.Name = "NgayGap";
+            this.NgayGap.ReadOnly = true;
+            this.NgayGap.Width = 110;
+            // 
+            // NoiDung_LH
+            // 
+            this.NoiDung_LH.HeaderText = "Nội dung";
+            this.NoiDung_LH.Name = "NoiDung_LH";
+            this.NoiDung_LH.ReadOnly = true;
+            this.NoiDung_LH.Width = 200;
             // 
             // dTimeNgayGap
             // 
@@ -246,9 +284,10 @@
             // 
             // txtNoiDung
             // 
-            this.txtNoiDung.Location = new System.Drawing.Point(618, 206);
+            this.txtNoiDung.Location = new System.Drawing.Point(345, 254);
+            this.txtNoiDung.Multiline = true;
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(209, 20);
+            this.txtNoiDung.Size = new System.Drawing.Size(473, 61);
             this.txtNoiDung.TabIndex = 45;
             // 
             // txtMaLH
@@ -273,7 +312,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(493, 204);
+            this.label4.Location = new System.Drawing.Point(220, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 19);
             this.label4.TabIndex = 40;
@@ -322,66 +361,6 @@
             this.reflectionLabel1.TabIndex = 1;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Lịch Hẹn</font></font></b>";
             // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 40;
-            // 
-            // MaLH
-            // 
-            this.MaLH.HeaderText = "Mã lịch hẹn";
-            this.MaLH.Name = "MaLH";
-            // 
-            // MaNV
-            // 
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.Visible = false;
-            // 
-            // TenNV
-            // 
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.ReadOnly = true;
-            this.TenNV.Width = 120;
-            // 
-            // MaKH
-            // 
-            this.MaKH.HeaderText = "Mã khách hàng";
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Visible = false;
-            // 
-            // TenKH
-            // 
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            this.TenKH.Width = 120;
-            // 
-            // NgayHen
-            // 
-            this.NgayHen.HeaderText = "Ngày hẹn";
-            this.NgayHen.Name = "NgayHen";
-            this.NgayHen.ReadOnly = true;
-            this.NgayHen.Width = 110;
-            // 
-            // NgayGap
-            // 
-            this.NgayGap.HeaderText = "Ngày gặp";
-            this.NgayGap.Name = "NgayGap";
-            this.NgayGap.ReadOnly = true;
-            this.NgayGap.Width = 110;
-            // 
-            // NoiDung_LH
-            // 
-            this.NoiDung_LH.HeaderText = "Nội dung";
-            this.NoiDung_LH.Name = "NoiDung_LH";
-            this.NoiDung_LH.ReadOnly = true;
-            this.NoiDung_LH.Width = 200;
-            // 
             // FormLichHen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,8 +397,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTenNV;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTenKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLH;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
@@ -429,5 +406,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayHen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayGap;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung_LH;
+        private System.Windows.Forms.ComboBox cbbTenKH;
+        private System.Windows.Forms.ComboBox cbbTenNV;
     }
 }

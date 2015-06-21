@@ -13,6 +13,7 @@ namespace Main.GUI
 {
     public partial class FormLichHen : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
         private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
 
         private List<LICHHEN> _listLichHen;
@@ -21,9 +22,10 @@ namespace Main.GUI
 
         private LICHHEN _selected;
         private LICHHEN _lichHen;
-        public FormLichHen()
+        public FormLichHen(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
+            _tabControl = tabControl;
         }
 
         private void FormLichHen_Load(object sender, EventArgs e)
@@ -32,13 +34,11 @@ namespace Main.GUI
             _listNhanVien = data.NHANVIENs.ToList();
             _listKhachHang = data.KHACHHANGs.ToList();
 
-            cbtTenKH.DataSource = _listKhachHang;
-            cbtTenKH.DisplayMembers = "TenKH";
-            cbtTenKH.ValueMember = "TenKH";
+            cbbTenKH.DataSource = _listKhachHang;
+            cbbTenKH.DisplayMember = "TenKH";
 
-            cbtTenNV.DataSource = _listNhanVien;
-            cbtTenNV.DisplayMembers = "TenNV";
-            cbtTenNV.ValueMember = "TenNV";
+            cbbTenNV.DataSource = _listNhanVien;
+            cbbTenNV.DisplayMember = "TenNV";
 
             txtMaLH.Text = GenerMaLH();
             showDataOnGridView();
@@ -109,8 +109,8 @@ namespace Main.GUI
                 _lichHen = new LICHHEN();
 
                 _lichHen.Ma_LH = txtMaLH.Text;
-                _lichHen.MaKH = _listKhachHang[cbtTenKH.SelectedIndex].MaKH;
-                _lichHen.MaNV = _listNhanVien[cbtTenNV.SelectedIndex].MaNV;
+                _lichHen.MaKH = _listKhachHang[cbbTenKH.SelectedIndex].MaKH;
+                _lichHen.MaNV = _listNhanVien[cbbTenNV.SelectedIndex].MaNV;
                 _lichHen.NoiDung_LH = txtNoiDung.Text;
                 _lichHen.NgayGap = dTimeNgayGap.Value;
                 _lichHen.NgayHen = dTimeNgayHen.Value;
@@ -140,8 +140,8 @@ namespace Main.GUI
                 _selected.NgayHen = (DateTime)dtgrid_LichHen.Rows[e.RowIndex].Cells["NgayHen"].Value;
 
 
-                cbtTenKH.Text = dtgrid_LichHen.Rows[e.RowIndex].Cells["TenKH"].Value.ToString();
-                cbtTenNV.Text = dtgrid_LichHen.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
+                cbbTenKH.Text = dtgrid_LichHen.Rows[e.RowIndex].Cells["TenKH"].Value.ToString();
+                cbbTenNV.Text = dtgrid_LichHen.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
                 dTimeNgayGap.Value = _selected.NgayGap.Value;
                 dTimeNgayHen.Value = _selected.NgayHen.Value;
                 txtNoiDung.Text = _selected.NoiDung_LH;
@@ -182,6 +182,7 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 
@@ -195,8 +196,8 @@ namespace Main.GUI
                     _lichHen.NgayGap = dTimeNgayGap.Value;
                     _lichHen.NgayHen = dTimeNgayHen.Value;
                     _lichHen.NoiDung_LH = txtNoiDung.Text;
-                    _lichHen.MaNV = _listNhanVien[cbtTenNV.SelectedIndex].MaNV;
-                    _lichHen.MaKH = _listKhachHang[cbtTenKH.SelectedIndex].MaKH;
+                    _lichHen.MaNV = _listNhanVien[cbbTenNV.SelectedIndex].MaNV;
+                    _lichHen.MaKH = _listKhachHang[cbbTenKH.SelectedIndex].MaKH;
 
                     data.SubmitChanges();
                     MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

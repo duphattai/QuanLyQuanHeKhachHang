@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGiaoDich));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.cbtMHD = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.cbbTimKiem = new System.Windows.Forms.ComboBox();
+            this.cbbMHD = new System.Windows.Forms.ComboBox();
+            this.txtMGD = new System.Windows.Forms.TextBox();
             this.dtgrid_GiaoDich = new System.Windows.Forms.DataGridView();
             this.dtNGD = new System.Windows.Forms.DateTimePicker();
             this.btntimkiem = new DevComponents.DotNetBar.ButtonX();
@@ -48,8 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
-            this.txtMGD = new System.Windows.Forms.TextBox();
-            this.cbtTimKiem = new DevComponents.DotNetBar.Controls.ComboTree();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_GiaoDich)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +58,9 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.cbtTimKiem);
+            this.panelEx1.Controls.Add(this.cbbTimKiem);
+            this.panelEx1.Controls.Add(this.cbbMHD);
             this.panelEx1.Controls.Add(this.txtMGD);
-            this.panelEx1.Controls.Add(this.cbtMHD);
             this.panelEx1.Controls.Add(this.dtgrid_GiaoDich);
             this.panelEx1.Controls.Add(this.dtNGD);
             this.panelEx1.Controls.Add(this.btntimkiem);
@@ -91,24 +91,29 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // cbtMHD
+            // cbbTimKiem
             // 
-            this.cbtMHD.BackColor = System.Drawing.SystemColors.Window;
+            this.cbbTimKiem.FormattingEnabled = true;
+            this.cbbTimKiem.Location = new System.Drawing.Point(76, 259);
+            this.cbbTimKiem.Name = "cbbTimKiem";
+            this.cbbTimKiem.Size = new System.Drawing.Size(122, 21);
+            this.cbbTimKiem.TabIndex = 41;
             // 
+            // cbbMHD
             // 
+            this.cbbMHD.FormattingEnabled = true;
+            this.cbbMHD.Location = new System.Drawing.Point(309, 147);
+            this.cbbMHD.Name = "cbbMHD";
+            this.cbbMHD.Size = new System.Drawing.Size(100, 21);
+            this.cbbMHD.TabIndex = 40;
             // 
-            this.cbtMHD.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtMHD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtMHD.ButtonClear.Tooltip = "";
-            this.cbtMHD.ButtonCustom.Tooltip = "";
-            this.cbtMHD.ButtonCustom2.Tooltip = "";
-            this.cbtMHD.ButtonDropDown.Tooltip = "";
-            this.cbtMHD.ButtonDropDown.Visible = true;
-            this.cbtMHD.Location = new System.Drawing.Point(309, 143);
-            this.cbtMHD.Name = "cbtMHD";
-            this.cbtMHD.Size = new System.Drawing.Size(100, 23);
-            this.cbtMHD.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtMHD.TabIndex = 37;
+            // txtMGD
+            // 
+            this.txtMGD.Location = new System.Drawing.Point(309, 100);
+            this.txtMGD.Name = "txtMGD";
+            this.txtMGD.ReadOnly = true;
+            this.txtMGD.Size = new System.Drawing.Size(100, 20);
+            this.txtMGD.TabIndex = 38;
             // 
             // dtgrid_GiaoDich
             // 
@@ -284,33 +289,6 @@
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Thông Tin Giao Dịch</font></font>" +
     "</b>";
             // 
-            // txtMGD
-            // 
-            this.txtMGD.Location = new System.Drawing.Point(309, 100);
-            this.txtMGD.Name = "txtMGD";
-            this.txtMGD.ReadOnly = true;
-            this.txtMGD.Size = new System.Drawing.Size(100, 20);
-            this.txtMGD.TabIndex = 38;
-            // 
-            // cbtTimKiem
-            // 
-            this.cbtTimKiem.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtTimKiem.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTimKiem.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTimKiem.ButtonClear.Tooltip = "";
-            this.cbtTimKiem.ButtonCustom.Tooltip = "";
-            this.cbtTimKiem.ButtonCustom2.Tooltip = "";
-            this.cbtTimKiem.ButtonDropDown.Tooltip = "";
-            this.cbtTimKiem.ButtonDropDown.Visible = true;
-            this.cbtTimKiem.Location = new System.Drawing.Point(76, 259);
-            this.cbtTimKiem.Name = "cbtTimKiem";
-            this.cbtTimKiem.Size = new System.Drawing.Size(132, 23);
-            this.cbtTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTimKiem.TabIndex = 39;
-            // 
             // FormGiaoDich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,10 +326,10 @@
         private DevComponents.DotNetBar.ButtonX btntimkiem;
         private System.Windows.Forms.DateTimePicker dtNGD;
         private System.Windows.Forms.DataGridView dtgrid_GiaoDich;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtMHD;
         private System.Windows.Forms.BindingSource qUANLYQUANHEKHACHHANGDataSet1BindingSource;
         private System.Windows.Forms.TextBox txtMGD;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTimKiem;
+        private System.Windows.Forms.ComboBox cbbMHD;
+        private System.Windows.Forms.ComboBox cbbTimKiem;
        
     }
 }

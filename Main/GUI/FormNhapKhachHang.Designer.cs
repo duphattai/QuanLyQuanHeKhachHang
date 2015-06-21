@@ -30,8 +30,17 @@
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.btnTaoMoi = new DevComponents.DotNetBar.ButtonX();
-            this.cbtNhomKH = new DevComponents.DotNetBar.Controls.ComboTree();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChiKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
@@ -52,16 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChiKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbbNhomKH = new System.Windows.Forms.ComboBox();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -70,8 +70,8 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.cbbNhomKH);
             this.panelEx1.Controls.Add(this.btnTaoMoi);
-            this.panelEx1.Controls.Add(this.cbtNhomKH);
             this.panelEx1.Controls.Add(this.dataGridView);
             this.panelEx1.Controls.Add(this.txtCMND);
             this.panelEx1.Controls.Add(this.txtSDT);
@@ -120,25 +120,6 @@
             this.btnTaoMoi.Text = "Tạo mới";
             this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
             // 
-            // cbtNhomKH
-            // 
-            this.cbtNhomKH.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtNhomKH.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtNhomKH.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtNhomKH.ButtonClear.Tooltip = "";
-            this.cbtNhomKH.ButtonCustom.Tooltip = "";
-            this.cbtNhomKH.ButtonCustom2.Tooltip = "";
-            this.cbtNhomKH.ButtonDropDown.Tooltip = "";
-            this.cbtNhomKH.ButtonDropDown.Visible = true;
-            this.cbtNhomKH.Location = new System.Drawing.Point(376, 169);
-            this.cbtNhomKH.Name = "cbtNhomKH";
-            this.cbtNhomKH.Size = new System.Drawing.Size(100, 23);
-            this.cbtNhomKH.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtNhomKH.TabIndex = 53;
-            // 
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -158,6 +139,75 @@
             this.dataGridView.Size = new System.Drawing.Size(893, 120);
             this.dataGridView.TabIndex = 52;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 50;
+            // 
+            // MaNhomKH
+            // 
+            this.MaNhomKH.HeaderText = "MaNhomKH";
+            this.MaNhomKH.Name = "MaNhomKH";
+            this.MaNhomKH.ReadOnly = true;
+            this.MaNhomKH.Visible = false;
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            // 
+            // TenNhomKH
+            // 
+            this.TenNhomKH.HeaderText = "Nhóm khách hàng";
+            this.TenNhomKH.Name = "TenNhomKH";
+            this.TenNhomKH.ReadOnly = true;
+            // 
+            // TenKH
+            // 
+            this.TenKH.DataPropertyName = "TenKH";
+            this.TenKH.HeaderText = "Họ tên";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            // 
+            // DiaChiKH
+            // 
+            this.DiaChiKH.DataPropertyName = "DiaChiKH";
+            this.DiaChiKH.HeaderText = "Địa chỉ";
+            this.DiaChiKH.Name = "DiaChiKH";
+            this.DiaChiKH.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.DataPropertyName = "SoDienThoai";
+            this.SoDienThoai.HeaderText = "Số điện thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
             // 
             // txtCMND
             // 
@@ -355,74 +405,13 @@
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Nhập Thông Tin Khách Hàng</font><" +
     "/font></b>";
             // 
-            // STT
+            // cbbNhomKH
             // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            // 
-            // MaNhomKH
-            // 
-            this.MaNhomKH.HeaderText = "MaNhomKH";
-            this.MaNhomKH.Name = "MaNhomKH";
-            this.MaNhomKH.ReadOnly = true;
-            this.MaNhomKH.Visible = false;
-            // 
-            // MaKH
-            // 
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã khách hàng";
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            // 
-            // TenNhomKH
-            // 
-            this.TenNhomKH.HeaderText = "Nhóm khách hàng";
-            this.TenNhomKH.Name = "TenNhomKH";
-            this.TenNhomKH.ReadOnly = true;
-            // 
-            // TenKH
-            // 
-            this.TenKH.DataPropertyName = "TenKH";
-            this.TenKH.HeaderText = "Họ tên";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            // 
-            // DiaChiKH
-            // 
-            this.DiaChiKH.DataPropertyName = "DiaChiKH";
-            this.DiaChiKH.HeaderText = "Địa chỉ";
-            this.DiaChiKH.Name = "DiaChiKH";
-            this.DiaChiKH.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.DataPropertyName = "SoDienThoai";
-            this.SoDienThoai.HeaderText = "Số điện thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "CMND";
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
+            this.cbbNhomKH.FormattingEnabled = true;
+            this.cbbNhomKH.Location = new System.Drawing.Point(376, 170);
+            this.cbbNhomKH.Name = "cbbNhomKH";
+            this.cbbNhomKH.Size = new System.Drawing.Size(100, 21);
+            this.cbbNhomKH.TabIndex = 55;
             // 
             // FormNhapKhachHang
             // 
@@ -464,7 +453,6 @@
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.DataGridView dataGridView;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtNhomKH;
         private DevComponents.DotNetBar.ButtonX btnTaoMoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNhomKH;
@@ -476,5 +464,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.ComboBox cbbNhomKH;
     }
 }

@@ -29,7 +29,16 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.cbbTenNV = new System.Windows.Forms.ComboBox();
+            this.cbtTenKH = new System.Windows.Forms.ComboBox();
             this.dtgrid_HoTro = new System.Windows.Forms.DataGridView();
+            this.MaHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TG_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
@@ -44,15 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.MaHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TG_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbtTenKH = new DevComponents.DotNetBar.Controls.ComboTree();
-            this.cbtTenNV = new DevComponents.DotNetBar.Controls.ComboTree();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_HoTro)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.cbtTenNV);
+            this.panelEx1.Controls.Add(this.cbbTenNV);
             this.panelEx1.Controls.Add(this.cbtTenKH);
             this.panelEx1.Controls.Add(this.dtgrid_HoTro);
             this.panelEx1.Controls.Add(this.btnThem);
@@ -92,6 +92,22 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
+            // cbbTenNV
+            // 
+            this.cbbTenNV.FormattingEnabled = true;
+            this.cbbTenNV.Location = new System.Drawing.Point(661, 165);
+            this.cbbTenNV.Name = "cbbTenNV";
+            this.cbbTenNV.Size = new System.Drawing.Size(165, 21);
+            this.cbbTenNV.TabIndex = 58;
+            // 
+            // cbtTenKH
+            // 
+            this.cbtTenKH.FormattingEnabled = true;
+            this.cbtTenKH.Location = new System.Drawing.Point(384, 165);
+            this.cbtTenKH.Name = "cbtTenKH";
+            this.cbtTenKH.Size = new System.Drawing.Size(114, 21);
+            this.cbtTenKH.TabIndex = 57;
+            // 
             // dtgrid_HoTro
             // 
             this.dtgrid_HoTro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -103,11 +119,65 @@
             this.TenNV,
             this.TG_HT,
             this.NoiDung});
-            this.dtgrid_HoTro.Location = new System.Drawing.Point(172, 284);
+            this.dtgrid_HoTro.Location = new System.Drawing.Point(172, 289);
             this.dtgrid_HoTro.Name = "dtgrid_HoTro";
             this.dtgrid_HoTro.Size = new System.Drawing.Size(796, 114);
             this.dtgrid_HoTro.TabIndex = 37;
             this.dtgrid_HoTro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_HoTro_CellClick);
+            // 
+            // MaHT
+            // 
+            this.MaHT.DataPropertyName = "MaHT";
+            this.MaHT.HeaderText = "Mã hỗ trợ";
+            this.MaHT.Name = "MaHT";
+            this.MaHT.ReadOnly = true;
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Visible = false;
+            this.MaKH.Width = 150;
+            // 
+            // TenKH
+            // 
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            this.TenKH.Width = 150;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            this.MaNV.Visible = false;
+            this.MaNV.Width = 150;
+            // 
+            // TenNV
+            // 
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
+            this.TenNV.Width = 150;
+            // 
+            // TG_HT
+            // 
+            this.TG_HT.DataPropertyName = "TG_HT";
+            this.TG_HT.HeaderText = "Thời gian";
+            this.TG_HT.Name = "TG_HT";
+            this.TG_HT.ReadOnly = true;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.DataPropertyName = "NoiDung";
+            this.NoiDung.HeaderText = "Nội dung";
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.ReadOnly = true;
+            this.NoiDung.Width = 250;
             // 
             // btnThem
             // 
@@ -176,16 +246,17 @@
             // 
             // dTimeThoiGian
             // 
-            this.dTimeThoiGian.Location = new System.Drawing.Point(667, 167);
+            this.dTimeThoiGian.Location = new System.Drawing.Point(664, 122);
             this.dTimeThoiGian.Name = "dTimeThoiGian";
-            this.dTimeThoiGian.Size = new System.Drawing.Size(200, 20);
+            this.dTimeThoiGian.Size = new System.Drawing.Size(162, 20);
             this.dTimeThoiGian.TabIndex = 31;
             // 
             // txtNoiDung
             // 
-            this.txtNoiDung.Location = new System.Drawing.Point(667, 120);
+            this.txtNoiDung.Location = new System.Drawing.Point(384, 212);
+            this.txtNoiDung.Multiline = true;
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(200, 20);
+            this.txtNoiDung.Size = new System.Drawing.Size(442, 54);
             this.txtNoiDung.TabIndex = 30;
             // 
             // txtMaHT
@@ -200,7 +271,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(538, 165);
+            this.label5.Location = new System.Drawing.Point(535, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 19);
             this.label5.TabIndex = 26;
@@ -210,7 +281,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(538, 119);
+            this.label4.Location = new System.Drawing.Point(258, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 19);
             this.label4.TabIndex = 25;
@@ -220,7 +291,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(258, 215);
+            this.label3.Location = new System.Drawing.Point(535, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 19);
             this.label3.TabIndex = 24;
@@ -258,98 +329,6 @@
             this.reflectionLabel1.Size = new System.Drawing.Size(112, 70);
             this.reflectionLabel1.TabIndex = 1;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Hỗ Trợ</font></font></b>";
-            // 
-            // MaHT
-            // 
-            this.MaHT.DataPropertyName = "MaHT";
-            this.MaHT.HeaderText = "Mã hỗ trợ";
-            this.MaHT.Name = "MaHT";
-            this.MaHT.ReadOnly = true;
-            // 
-            // MaKH
-            // 
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã khách hàng";
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Visible = false;
-            this.MaKH.Width = 150;
-            // 
-            // TenKH
-            // 
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            this.TenKH.Width = 150;
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Visible = false;
-            this.MaNV.Width = 150;
-            // 
-            // TenNV
-            // 
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.ReadOnly = true;
-            this.TenNV.Width = 150;
-            // 
-            // TG_HT
-            // 
-            this.TG_HT.DataPropertyName = "TG_HT";
-            this.TG_HT.HeaderText = "Thời gian";
-            this.TG_HT.Name = "TG_HT";
-            this.TG_HT.ReadOnly = true;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.DataPropertyName = "NoiDung";
-            this.NoiDung.HeaderText = "Nội dung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.ReadOnly = true;
-            this.NoiDung.Width = 250;
-            // 
-            // cbtTenKH
-            // 
-            this.cbtTenKH.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtTenKH.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTenKH.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTenKH.ButtonClear.Tooltip = "";
-            this.cbtTenKH.ButtonCustom.Tooltip = "";
-            this.cbtTenKH.ButtonCustom2.Tooltip = "";
-            this.cbtTenKH.ButtonDropDown.Tooltip = "";
-            this.cbtTenKH.ButtonDropDown.Visible = true;
-            this.cbtTenKH.Location = new System.Drawing.Point(384, 167);
-            this.cbtTenKH.Name = "cbtTenKH";
-            this.cbtTenKH.Size = new System.Drawing.Size(114, 23);
-            this.cbtTenKH.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTenKH.TabIndex = 38;
-            // 
-            // cbtTenNV
-            // 
-            this.cbtTenNV.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtTenNV.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTenNV.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTenNV.ButtonClear.Tooltip = "";
-            this.cbtTenNV.ButtonCustom.Tooltip = "";
-            this.cbtTenNV.ButtonCustom2.Tooltip = "";
-            this.cbtTenNV.ButtonDropDown.Tooltip = "";
-            this.cbtTenNV.ButtonDropDown.Visible = true;
-            this.cbtTenNV.Location = new System.Drawing.Point(384, 211);
-            this.cbtTenNV.Name = "cbtTenNV";
-            this.cbtTenNV.Size = new System.Drawing.Size(114, 23);
-            this.cbtTenNV.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTenNV.TabIndex = 39;
             // 
             // FormHoTro
             // 
@@ -392,7 +371,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TG_HT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTenNV;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTenKH;
+        private System.Windows.Forms.ComboBox cbbTenNV;
+        private System.Windows.Forms.ComboBox cbtTenKH;
     }
 }

@@ -12,9 +12,20 @@ namespace Main.GUI
 {
     public partial class FormThuChi : Form
     {
-        public FormThuChi()
+        private DevComponents.DotNetBar.TabControl _tabControl;
+        public FormThuChi(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
+            _tabControl = tabControl;
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
+            }
         }
     }
 }

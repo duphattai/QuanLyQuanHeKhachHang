@@ -14,20 +14,23 @@ namespace Main.GUI
 {
     public partial class FormGiaoDich : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
 
-        BUS.QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
+
+        private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
        
         GIAODICH _giaodich = new GIAODICH();
         HOPDONG _hopdong = new HOPDONG();
         private List<GIAODICH> _listGiaoDich;
         private List<HOPDONG> _listHopDong;
-        public FormGiaoDich()
+        public FormGiaoDich(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
             dtNGD.CustomFormat = "dd/MM/yyyy";
 
             dtgrid_GiaoDich.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Width = dtgrid_GiaoDich.Width;
+            _tabControl = tabControl;
         }
         public void showDataOnGridView()
         {
@@ -53,14 +56,11 @@ namespace Main.GUI
             _listHopDong = data.HOPDONGs.ToList();
             _listGiaoDich = data.GIAODICHes.ToList();
 
-            cbtMHD.DataSource = _listHopDong;
+            cbbMHD.DataSource = _listHopDong;
+            cbbMHD.DisplayMember = "MaHD";
 
-            cbtMHD.DisplayMembers = "TenHD";
-            cbtMHD.ValueMember = "TenHD";
-
-            cbtTimKiem.DataSource = _listHopDong;
-            cbtTimKiem.DisplayMembers = "TenHD";
-            cbtTimKiem.ValueMember = "TenHD";
+            cbbTimKiem.DataSource = _listHopDong;
+            cbbTimKiem.DisplayMember = "MaHD";
 
 
             showDataOnGridView();
@@ -72,10 +72,9 @@ namespace Main.GUI
             int row = e.RowIndex;        
             try
             { 
-
                 txtMGD.Text = dtgrid_GiaoDich.Rows[row].Cells[0].Value.ToString().Trim();
                 String text = dtgrid_GiaoDich.Rows[row].Cells[1].Value.ToString().Trim();
-                cbtMHD.Text = text;
+                cbbMHD.Text = text;
                 dtNGD.Text = Convert.ToDateTime(dtgrid_GiaoDich.Rows[row].Cells[3].Value).ToString("dd/MM/yyyy");
                 txtTGD.Text = dtgrid_GiaoDich.Rows[row].Cells[2].Value.ToString().Trim();
                 txtDDGD.Text = dtgrid_GiaoDich.Rows[row].Cells[4].Value.ToString().Trim();
@@ -115,9 +114,9 @@ namespace Main.GUI
         {
             txtMGD.Text = GenrMaGD();
             txtDDGD.Text =" ";
-            cbtMHD.Text = "";           
+            cbbMHD.Text = "";           
             txtTGD.Text = "";
-            cbtMHD.Text = "";
+            cbbMHD.Text = "";
 
             _listGiaoDich = data.GIAODICHes.ToList();
             showDataOnGridView();
@@ -127,7 +126,7 @@ namespace Main.GUI
         {
             try{
                 _giaodich.Ma_GD = txtMGD.Text;
-                _giaodich.MaHD =  _listHopDong.ElementAt(cbtMHD.SelectedIndex).MaHD;
+                _giaodich.MaHD =  _listHopDong.ElementAt(cbbMHD.SelectedIndex).MaHD;
                 _giaodich.NgayGD = dtNGD.Value;
                 _giaodich.TenGD = txtTGD.Text;
                 _giaodich.DiaDiemGD = txtDDGD.Text;
@@ -154,7 +153,7 @@ namespace Main.GUI
                 if(_giaodich != null)
                 {
                     _giaodich.DiaDiemGD = txtDDGD.Text;
-                    _giaodich.MaHD = _listHopDong.ElementAt(cbtMHD.SelectedIndex).MaHD;
+                    _giaodich.MaHD = _listHopDong.ElementAt(cbbMHD.SelectedIndex).MaHD;
                     _giaodich.NgayGD = dtNGD.Value;
                     _giaodich.TenGD = txtTGD.Text;
 
@@ -176,11 +175,13 @@ namespace Main.GUI
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            if (cbtTimKiem.SelectedIndex < 0) return;
+            if (cbbTimKiem.SelectedIndex < 0) return;
 
             _listGiaoDich = (from _giaodich in data.GIAODICHes
-                       where (_giaodich.TenGD.Contains(cbtTimKiem.Text))
+                       where (_giaodich.MaHD.Contains(cbbTimKiem.Text))
                        select _giaodich).ToList<GIAODICH>();
+
+            showDataOnGridView();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -188,6 +189,7 @@ namespace Main.GUI
             if(MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 

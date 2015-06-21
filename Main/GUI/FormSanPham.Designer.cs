@@ -33,6 +33,12 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btntimkiem = new DevComponents.DotNetBar.ButtonX();
             this.dtgrid_SanPham = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NuocSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtNSX = new System.Windows.Forms.DateTimePicker();
             this.txtDV = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,12 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NuocSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_SanPham)).BeginInit();
             this.SuspendLayout();
@@ -135,6 +135,50 @@
             this.dtgrid_SanPham.Size = new System.Drawing.Size(684, 124);
             this.dtgrid_SanPham.TabIndex = 57;
             this.dtgrid_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_SanPham_CellClick);
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên sản phẩm";
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            this.TenSP.Width = 110;
+            // 
+            // NuocSX
+            // 
+            this.NuocSX.DataPropertyName = "NuocSX";
+            this.NuocSX.HeaderText = "Nước sản xuất";
+            this.NuocSX.Name = "NuocSX";
+            this.NuocSX.ReadOnly = true;
+            this.NuocSX.Width = 120;
+            // 
+            // GiaSP
+            // 
+            this.GiaSP.DataPropertyName = "GiaSP";
+            this.GiaSP.HeaderText = "Giá sản phẩm";
+            this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
+            // 
+            // DonVi
+            // 
+            this.DonVi.DataPropertyName = "DonVi";
+            this.DonVi.HeaderText = "Đơn vị";
+            this.DonVi.Name = "DonVi";
+            this.DonVi.ReadOnly = true;
+            // 
+            // NgaySX
+            // 
+            this.NgaySX.DataPropertyName = "NgaySX";
+            this.NgaySX.HeaderText = "Ngày sản xuất";
+            this.NgaySX.Name = "NgaySX";
+            this.NgaySX.ReadOnly = true;
             // 
             // dtNSX
             // 
@@ -318,50 +362,6 @@
             this.reflectionLabel1.Size = new System.Drawing.Size(175, 70);
             this.reflectionLabel1.TabIndex = 1;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Sản Phẩm</font></font></b>";
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "Mã sản phẩm";
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên sản phẩm";
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            this.TenSP.Width = 110;
-            // 
-            // NuocSX
-            // 
-            this.NuocSX.DataPropertyName = "NuocSX";
-            this.NuocSX.HeaderText = "Nước sản xuất";
-            this.NuocSX.Name = "NuocSX";
-            this.NuocSX.ReadOnly = true;
-            this.NuocSX.Width = 120;
-            // 
-            // GiaSP
-            // 
-            this.GiaSP.DataPropertyName = "GiaSP";
-            this.GiaSP.HeaderText = "Giá sản phẩm";
-            this.GiaSP.Name = "GiaSP";
-            this.GiaSP.ReadOnly = true;
-            // 
-            // DonVi
-            // 
-            this.DonVi.DataPropertyName = "DonVi";
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.Name = "DonVi";
-            this.DonVi.ReadOnly = true;
-            // 
-            // NgaySX
-            // 
-            this.NgaySX.DataPropertyName = "NgaySX";
-            this.NgaySX.HeaderText = "Ngày sản xuất";
-            this.NgaySX.Name = "NgaySX";
-            this.NgaySX.ReadOnly = true;
             // 
             // FormSanPham
             // 

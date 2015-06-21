@@ -14,13 +14,11 @@ namespace Main
 {
     public partial class MAIN : DevComponents.DotNetBar.Office2007RibbonForm
     {
-
         public static DevComponents.DotNetBar.TabControl m_Tab;
         public MAIN()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
         }
 
 
@@ -57,32 +55,32 @@ namespace Main
 
         private void btnNV_Click(object sender, EventArgs e)
         {
-            if (checkTab("Nhân Viên") == false)
+            if (checkTab("Phân Quyền") == false)
             {
-                FormNhanVien form = new FormNhanVien();
-                AddTabControl(form, "Nhân Viên");
+                FormNguoiDung form = new FormNguoiDung(tabControl);
+                AddTabControl(form, "Phân Quyền");
             }
         }
 
-        private void buttonItemGiaoDich_Click(object sender, EventArgs e)
+        private void btnGiaoDich_Click(object sender, EventArgs e)
         {
             if (checkTab("Giao Dịch") == false)
             {
-                FormGiaoDich form = new FormGiaoDich();
+                FormGiaoDich form = new FormGiaoDich(tabControl);
                 AddTabControl(form, "Giao Dịch");
             }
         }
 
-        private void buttonItemHoaDon_Click(object sender, EventArgs e)
+        private void btnHoaDon_Click(object sender, EventArgs e)
         {
             if (checkTab("Hóa Đơn") == false)
             {
-                FormHoaDon form = new FormHoaDon();
+                FormHoaDon form = new FormHoaDon(tabControl);
                 AddTabControl(form, "Hóa Đơn");
             }
         }
 
-        private void buttonItemGuiMail_Click(object sender, EventArgs e)
+        private void btnGuiMail_Click(object sender, EventArgs e)
         {
             if (checkTab("Email") == false)
             {
@@ -91,89 +89,89 @@ namespace Main
             }
         }
 
-        private void buttonItemLapLichHen_Click(object sender, EventArgs e)
+        private void btnLapLichHen_Click(object sender, EventArgs e)
         {
             if (checkTab("Lịch Hẹn") == false)
             {
-                FormLichHen form = new FormLichHen();
+                FormLichHen form = new FormLichHen(tabControl);
                 AddTabControl(form, "Lịch Hẹn");
             }
         }
 
-        private void buttonItemNhapSanPham_Click(object sender, EventArgs e)
+        private void btnNhapSanPham_Click(object sender, EventArgs e)
         {
             if (checkTab("Sản Phẩm") == false)
             {
-                FormSanPham form = new FormSanPham();
+                FormSanPham form = new FormSanPham(tabControl);
                 AddTabControl(form, "Sản Phẩm");
             }
         }
 
-        private void buttonItemHoTro_Click(object sender, EventArgs e)
+        private void btnHoTro_Click(object sender, EventArgs e)
         {
             if (checkTab("Hỗ Trợ") == false)
             {
-                FormHoTro form = new FormHoTro();
+                FormHoTro form = new FormHoTro(tabControl);
                 AddTabControl(form, "Hỗ Trợ");
             }
         }
 
-        private void buttonItemKhachHang_Click(object sender, EventArgs e)
+        private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            if (checkTab("Khách Hàng") == false)
-            {
-                FormNhapKhachHang form = new FormNhapKhachHang();
-                AddTabControl(form, "Khách Hàng");
-            }
+            //if (checkTab("Khách Hàng") == false)
+            //{
+            //    FormNhapKhachHang form = new FormNhapKhachHang(tabControl);
+            //    AddTabControl(form, "Khách Hàng");
+            //}
         }
 
         private void buttonItem26_Click(object sender, EventArgs e)
         {
-            FormSanPham sp = new FormSanPham();
-            sp.ShowDialog();
+            //FormSanPham sp = new FormSanPham(tabControl);
+            //sp.ShowDialog();
         }
 
-        private void buttonItemHopDong_Click(object sender, EventArgs e)
+        private void btnHopDong_Click(object sender, EventArgs e)
         {
             if (checkTab("Hợp Đồng") == false)
             {
-                FormHopDong form = new FormHopDong();
+                FormHopDong form = new FormHopDong(tabControl);
                 AddTabControl(form, "Hợp Đồng");
             }
         }
 
-        private void buttonItemNhanVien_Click(object sender, EventArgs e)
+        private void btnNhanVien_Click(object sender, EventArgs e)
         {
             if (checkTab("Nhân Viên") == false)
             {
-                FormNhanVien form = new FormNhanVien();
+                FormNhanVien form = new FormNhanVien(tabControl);
                 AddTabControl(form, "Nhân Viên");
             }
         }
 
-        private void buttonItemThuChi_Click(object sender, EventArgs e)
+        private void btnThuChi_Click(object sender, EventArgs e)
         {
             if (checkTab("Thu Chi") == false)
             {
-                FormThuChi form = new FormThuChi();
+                FormThuChi form = new FormThuChi(tabControl);
                 AddTabControl(form, "Thu Chi");
             }
         }
 
-        private void buttonItemNguoiDung_Click(object sender, EventArgs e)
+        private void btnNguoiDung_Click(object sender, EventArgs e)
         {
             if (checkTab("Người Dùng") == false)
             {
-                FormNguoiDung form = new FormNguoiDung();
+                FormNguoiDung form = new FormNguoiDung(tabControl);
                 AddTabControl(form, "Người Dùng");
             }
         }
 
-        private void buttonItemGioiThieu_Click(object sender, EventArgs e)
+        private void btnGioiThieu_Click(object sender, EventArgs e)
         {
             if (checkTab("Giới Thiệu") == false)
             {
-                FormGioiThieu form = new FormGioiThieu();
+                FormGioiThieu form = new FormGioiThieu(tabControl);
                 AddTabControl(form, "Giới Thiệu");
             }
         }
@@ -184,9 +182,105 @@ namespace Main
             tabControl.Tabs.Remove(tabControl.SelectedTab);
         }
 
-        private void buttonItem16_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+                tabControl.Tabs.Clear();
+            }
+        }
+
+
+        private void setDefaulAuthority()
+        {
+            buttonItemGioiThieu.Enabled = true;
+            
+            buttonItemPhanQuyen.Enabled = false;
+            buttonItemThayDoiMatKhau.Enabled = false;
+            buttonItemDangNhap.Enabled = true;
+            
+            buttonItemTraCuuKH.Enabled = false;
+            buttonItemTraCuuLH.Enabled = false;
+            buttonItemTraCuuSP.Enabled = false;
+
+            buttonItemGiaoDich.Enabled = false;
+            buttonItemGuiMail.Enabled = false;
+            buttonItemHoTro.Enabled = false;
+            buttonItemHoaDon.Enabled = false;
+            buttonItemHopDong.Enabled = false;
+            buttonItemLapLichHen.Enabled = false;
+            buttonItemNhanVien.Enabled = false;
+            buttonItemNhapSanPham.Enabled = false;
+            buttonItemThuChi.Enabled = false;   
+        }
+
+
+        private void phanQuyen(string quyen)
+        {
+            switch (quyen)
+            {
+                case "":
+                    break;
+                case "ND0001": // bán hàng
+                    buttonItemHoaDon.Enabled = true;
+                    buttonItemLapLichHen.Enabled = true;
+                    buttonItemNhapSanPham.Enabled = true;
+                    buttonItemKhachHang.Enabled = true;
+                    buttonItemTraCuuKH.Enabled = true;
+                    buttonItemTraCuuSP.Enabled = true;
+                    buttonItemThayDoiMatKhau.Enabled = true;
+                    break;
+                case "ND0002": // marketing
+                    buttonItemGuiMail.Enabled = true;
+                    buttonItemThayDoiMatKhau.Enabled = true;
+                    break;
+                case "ND0003": // quản lý
+                    buttonItemGiaoDich.Enabled = true;
+                    buttonItemHopDong.Enabled = true;
+                    buttonItemThuChi.Enabled = true;
+                    buttonItemNhanVien.Enabled = true;
+                    buttonItemThayDoiMatKhau.Enabled = true;
+                    break;
+            }
+        }
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            FormDangNhap form = new FormDangNhap();
+            form.ShowDialog();
+
+            setDefaulAuthority();
+            phanQuyen(form._quyen);
+        }
+
+        private void buttonItemKhachHang_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Khách Hàng") == false)
+            {
+                FormNhapKhachHang form = new FormNhapKhachHang(tabControl);
+                AddTabControl(form, "Khách Hàng");
+            }
+        }
+
+        private void buttonItemThayDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Thay Đổi Mật Khẩu") == false)
+            {
+                FormThayDoiMatKhau form = new FormThayDoiMatKhau(tabControl);
+                AddTabControl(form, "Thay Đổi Mật Khẩu");
+            }
+        }
+
+        private void MAIN_Load(object sender, EventArgs e)
+        {
+            if (BUS.Connection.getConnectionString() == null)
+                this.Close();
+
+            setDefaulAuthority();
+            FormDangNhap form = new FormDangNhap();
+            form.ShowDialog();
+            
+            phanQuyen(form._quyen);
         }
     }
 }

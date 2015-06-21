@@ -30,13 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHoaDon));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.buttonLuu = new DevComponents.DotNetBar.ButtonX();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSL = new System.Windows.Forms.NumericUpDown();
-            this.cbtMSP = new DevComponents.DotNetBar.Controls.ComboTree();
             this.btntimkiem = new DevComponents.DotNetBar.ButtonX();
-            this.cbtMHD = new DevComponents.DotNetBar.Controls.ComboTree();
             this.label5 = new System.Windows.Forms.Label();
             this.dtgrid_HoaDon = new System.Windows.Forms.DataGridView();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -46,14 +51,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonLuu = new DevComponents.DotNetBar.ButtonX();
-            this.cbtTimKiem = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.cbbTenSP = new System.Windows.Forms.ComboBox();
+            this.cbbTenHD = new System.Windows.Forms.ComboBox();
+            this.cbtTimKiem = new System.Windows.Forms.ComboBox();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_HoaDon)).BeginInit();
@@ -64,12 +64,12 @@
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx1.Controls.Add(this.cbtTimKiem);
+            this.panelEx1.Controls.Add(this.cbbTenHD);
+            this.panelEx1.Controls.Add(this.cbbTenSP);
             this.panelEx1.Controls.Add(this.buttonLuu);
             this.panelEx1.Controls.Add(this.label6);
             this.panelEx1.Controls.Add(this.txtSL);
-            this.panelEx1.Controls.Add(this.cbtMSP);
             this.panelEx1.Controls.Add(this.btntimkiem);
-            this.panelEx1.Controls.Add(this.cbtMHD);
             this.panelEx1.Controls.Add(this.label5);
             this.panelEx1.Controls.Add(this.dtgrid_HoaDon);
             this.panelEx1.Controls.Add(this.btnThoat);
@@ -95,6 +95,20 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
+            // buttonLuu
+            // 
+            this.buttonLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonLuu.Enabled = false;
+            this.buttonLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonLuu.Location = new System.Drawing.Point(356, 407);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(75, 23);
+            this.buttonLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonLuu.TabIndex = 44;
+            this.buttonLuu.Text = "Lưu";
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -113,57 +127,18 @@
             this.txtSL.TabIndex = 42;
             this.txtSL.ValueChanged += new System.EventHandler(this.txtSL_ValueChanged);
             // 
-            // cbtMSP
-            // 
-            this.cbtMSP.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtMSP.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtMSP.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtMSP.ButtonClear.Tooltip = "";
-            this.cbtMSP.ButtonCustom.Tooltip = "";
-            this.cbtMSP.ButtonCustom2.Tooltip = "";
-            this.cbtMSP.ButtonDropDown.Tooltip = "";
-            this.cbtMSP.ButtonDropDown.Visible = true;
-            this.cbtMSP.Location = new System.Drawing.Point(313, 110);
-            this.cbtMSP.Name = "cbtMSP";
-            this.cbtMSP.Size = new System.Drawing.Size(100, 23);
-            this.cbtMSP.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtMSP.TabIndex = 41;
-            this.cbtMSP.SelectedIndexChanged += new System.EventHandler(this.cbtMSP_SelectedIndexChanged);
-            // 
             // btntimkiem
             // 
             this.btntimkiem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btntimkiem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btntimkiem.Location = new System.Drawing.Point(267, 208);
+            this.btntimkiem.Location = new System.Drawing.Point(216, 208);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(75, 23);
             this.btntimkiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btntimkiem.TabIndex = 39;
             this.btntimkiem.Text = "Tìm kiếm";
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
-            // 
-            // cbtMHD
-            // 
-            this.cbtMHD.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtMHD.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtMHD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtMHD.ButtonClear.Tooltip = "";
-            this.cbtMHD.ButtonCustom.Tooltip = "";
-            this.cbtMHD.ButtonCustom2.Tooltip = "";
-            this.cbtMHD.ButtonDropDown.Tooltip = "";
-            this.cbtMHD.ButtonDropDown.Visible = true;
-            this.cbtMHD.Location = new System.Drawing.Point(313, 147);
-            this.cbtMHD.Name = "cbtMHD";
-            this.cbtMHD.Size = new System.Drawing.Size(100, 23);
-            this.cbtMHD.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtMHD.TabIndex = 38;
             // 
             // label5
             // 
@@ -191,6 +166,44 @@
             this.dtgrid_HoaDon.TabIndex = 29;
             this.dtgrid_HoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_HoaDon_CellClick);
             this.dtgrid_HoaDon.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_HoaDon_RowEnter);
+            // 
+            // TenSP
+            // 
+            this.TenSP.HeaderText = "Sản phẩm";
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // TenHD
+            // 
+            this.TenHD.HeaderText = "Hợp đồng";
+            this.TenHD.Name = "TenHD";
+            this.TenHD.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            // 
+            // MaSP
+            // 
+            this.MaSP.HeaderText = "MaSP";
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Visible = false;
+            // 
+            // MaHD
+            // 
+            this.MaHD.HeaderText = "MaHD";
+            this.MaHD.Name = "MaHD";
+            this.MaHD.ReadOnly = true;
+            this.MaHD.Visible = false;
             // 
             // btnThoat
             // 
@@ -295,76 +308,29 @@
             this.reflectionLabel1.TabIndex = 0;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Hóa Đơn</font></font></b>";
             // 
-            // TenSP
+            // cbbTenSP
             // 
-            this.TenSP.HeaderText = "Sản phẩm";
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
+            this.cbbTenSP.FormattingEnabled = true;
+            this.cbbTenSP.Location = new System.Drawing.Point(313, 108);
+            this.cbbTenSP.Name = "cbbTenSP";
+            this.cbbTenSP.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenSP.TabIndex = 46;
             // 
-            // TenHD
+            // cbbTenHD
             // 
-            this.TenHD.HeaderText = "Hợp đồng";
-            this.TenHD.Name = "TenHD";
-            this.TenHD.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            // 
-            // MaSP
-            // 
-            this.MaSP.HeaderText = "MaSP";
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Visible = false;
-            // 
-            // MaHD
-            // 
-            this.MaHD.HeaderText = "MaHD";
-            this.MaHD.Name = "MaHD";
-            this.MaHD.ReadOnly = true;
-            this.MaHD.Visible = false;
-            // 
-            // buttonLuu
-            // 
-            this.buttonLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonLuu.Enabled = false;
-            this.buttonLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonLuu.Location = new System.Drawing.Point(356, 407);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(75, 23);
-            this.buttonLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonLuu.TabIndex = 44;
-            this.buttonLuu.Text = "Lưu";
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            this.cbbTenHD.FormattingEnabled = true;
+            this.cbbTenHD.Location = new System.Drawing.Point(313, 149);
+            this.cbbTenHD.Name = "cbbTenHD";
+            this.cbbTenHD.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenHD.TabIndex = 47;
             // 
             // cbtTimKiem
             // 
-            this.cbtTimKiem.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbtTimKiem.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbtTimKiem.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbtTimKiem.ButtonClear.Tooltip = "";
-            this.cbtTimKiem.ButtonCustom.Tooltip = "";
-            this.cbtTimKiem.ButtonCustom2.Tooltip = "";
-            this.cbtTimKiem.ButtonDropDown.Tooltip = "";
-            this.cbtTimKiem.ButtonDropDown.Visible = true;
-            this.cbtTimKiem.Location = new System.Drawing.Point(118, 210);
+            this.cbtTimKiem.FormattingEnabled = true;
+            this.cbtTimKiem.Location = new System.Drawing.Point(82, 208);
             this.cbtTimKiem.Name = "cbtTimKiem";
-            this.cbtTimKiem.Size = new System.Drawing.Size(122, 23);
-            this.cbtTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbtTimKiem.TabIndex = 45;
+            this.cbtTimKiem.Size = new System.Drawing.Size(100, 21);
+            this.cbtTimKiem.TabIndex = 48;
             // 
             // FormHoaDon
             // 
@@ -399,9 +365,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgrid_HoaDon;
         private System.Windows.Forms.Label label5;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtMHD;
         private DevComponents.DotNetBar.ButtonX btntimkiem;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtMSP;
         private System.Windows.Forms.NumericUpDown txtSL;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
@@ -411,6 +375,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
         private DevComponents.DotNetBar.ButtonX buttonLuu;
-        private DevComponents.DotNetBar.Controls.ComboTree cbtTimKiem;
+        private System.Windows.Forms.ComboBox cbtTimKiem;
+        private System.Windows.Forms.ComboBox cbbTenHD;
+        private System.Windows.Forms.ComboBox cbbTenSP;
     }
 }

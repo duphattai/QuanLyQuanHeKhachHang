@@ -12,15 +12,19 @@ namespace Main.GUI
 {
     public partial class FormHopDong : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
+
+
         private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         private List<HOPDONG> _listHopDong;
         private List<NHANVIEN> _listNhanVien;
         private List<KHACHHANG> _listKhachHang;
         private HOPDONG _hopDong;
         private HOPDONG _selected;
-        public FormHopDong()
+        public FormHopDong(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
+            _tabControl = tabControl;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -28,6 +32,7 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 
@@ -181,12 +186,10 @@ namespace Main.GUI
             _listNhanVien = data.NHANVIENs.ToList();
 
             cbtTenKH.DataSource = _listKhachHang;
-            cbtTenKH.DisplayMembers = "TenKH";
-            cbtTenKH.ValueMember = "TenKH";
+            cbtTenKH.DisplayMember = "TenKH";
 
             cbtTenNV.DataSource = _listNhanVien;
-            cbtTenNV.DisplayMembers = "TenNV";
-            cbtTenNV.ValueMember = "TenNV";
+            cbtTenNV.DisplayMember = "TenNV";
 
             txtMaHD.Text = GenrMaHD();
             showDataOnGridView();

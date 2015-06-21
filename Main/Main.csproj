@@ -116,6 +116,12 @@
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormGiaoDich.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     <Compile Include="GUI\FormSanPham.Designer.cs">
       <DependentUpon>FormSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormThayDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormThayDoiMatKhau.Designer.cs">
+      <DependentUpon>FormThayDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormThuChi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +221,9 @@
     </Compile>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormGiaoDich.resx">
       <DependentUpon>FormGiaoDich.cs</DependentUpon>
@@ -248,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSanPham.resx">
       <DependentUpon>FormSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormThayDoiMatKhau.resx">
+      <DependentUpon>FormThayDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormThuChi.resx">
       <DependentUpon>FormThuChi.cs</DependentUpon>
@@ -302,13 +320,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BUS\QUANLYQUANHEKHACHHANG_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>QUANLYQUANHEKHACHHANG.mdf</DependentUpon>
-    </Content>
-    <Content Include="QUANLYQUANHEKHACHHANG.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="QUANLYQUANHEKHACHHANG_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>QUANLYQUANHEKHACHHANG.mdf</DependentUpon>
     </Content>

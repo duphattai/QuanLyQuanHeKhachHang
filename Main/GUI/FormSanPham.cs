@@ -13,19 +13,21 @@ namespace Main.GUI
 {
     public partial class FormSanPham : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
         private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         private SANPHAM _sanpham = new SANPHAM();
         private List<SANPHAM> _listSanPham;
 
         private SANPHAM _selected;
 
-        public FormSanPham()
+        public FormSanPham(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
             dtNSX.CustomFormat = "dd/MM/yyyy";
             dtgrid_SanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Width = dtgrid_SanPham.Width;
             this.StartPosition = FormStartPosition.CenterScreen;
+            _tabControl = tabControl;
         }
         
 
@@ -134,6 +136,7 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 

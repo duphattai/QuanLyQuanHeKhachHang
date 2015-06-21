@@ -13,6 +13,7 @@ namespace Main.GUI
 {
     public partial class FormNhapKhachHang : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
         private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
 
         private List<KHACHHANG> _listKhachHang;
@@ -21,9 +22,10 @@ namespace Main.GUI
         private KHACHHANG _khachHang;
         private KHACHHANG _selected;
 
-        public FormNhapKhachHang()
+        public FormNhapKhachHang(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
+            _tabControl = tabControl;
         }
 
         private void FormNhapKhachHang_Load(object sender, EventArgs e)
@@ -31,9 +33,8 @@ namespace Main.GUI
             _listKhachHang = data.KHACHHANGs.ToList();
             _listNhomKhachHang = data.NHOM_KHs.ToList();
 
-            cbtNhomKH.DataSource = _listNhomKhachHang;
-            cbtNhomKH.DisplayMembers = "TenNhomKH";
-            cbtNhomKH.ValueMember = "TenNhomKH";
+            cbbNhomKH.DataSource = _listNhomKhachHang;
+            cbbNhomKH.DisplayMember = "TenNhomKH";
 
             txtMaKH.Text = GenrMaKH();
             showDataOnGridView();
@@ -79,6 +80,7 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 
@@ -89,7 +91,7 @@ namespace Main.GUI
                 _khachHang = new KHACHHANG();
 
                 _khachHang.MaKH = txtMaKH.Text;
-                _khachHang.MaNhomKH = _listNhomKhachHang[cbtNhomKH.SelectedIndex].MaNhomKH;
+                _khachHang.MaNhomKH = _listNhomKhachHang[cbbNhomKH.SelectedIndex].MaNhomKH;
                 _khachHang.TenKH = txtTenKH.Text;
                 _khachHang.SoDienThoai = Convert.ToInt32(txtSDT.Text);
                 _khachHang.NgaySinh = dTimeNgaySinh.Value;
@@ -144,7 +146,7 @@ namespace Main.GUI
                 txtDiaChi.Text = _selected.DiaChiKH;
                 txtEmail.Text = _selected.Email;
                 txtMaKH.Text = _selected.MaKH;
-                cbtNhomKH.Text = dataGridView.Rows[e.RowIndex].Cells["TenNhomKH"].Value.ToString();
+                cbbNhomKH.Text = dataGridView.Rows[e.RowIndex].Cells["TenNhomKH"].Value.ToString();
                 dTimeNgaySinh.Value = _selected.NgaySinh.Value;
                 txtSDT.Text = _selected.SoDienThoai.ToString();
                 txtTenKH.Text = _selected.TenKH;
@@ -184,7 +186,7 @@ namespace Main.GUI
                 _khachHang = data.KHACHHANGs.Where(kh => kh.MaKH == _selected.MaKH).SingleOrDefault<KHACHHANG>();
                 if (_khachHang != null)
                 {
-                    _khachHang.MaNhomKH = _listNhomKhachHang[cbtNhomKH.SelectedIndex].MaNhomKH;
+                    _khachHang.MaNhomKH = _listNhomKhachHang[cbbNhomKH.SelectedIndex].MaNhomKH;
                     _khachHang.TenKH = txtTenKH.Text;
                     _khachHang.SoDienThoai = Convert.ToInt32(txtSDT.Text);
                     _khachHang.NgaySinh = dTimeNgaySinh.Value;

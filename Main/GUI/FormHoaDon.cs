@@ -13,11 +13,12 @@ namespace Main.GUI
 {
     public partial class FormHoaDon : Form
     {
-        QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
+        private DevComponents.DotNetBar.TabControl _tabControl;
+        private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         
-        HOPDONG _hopdong = new HOPDONG();
-        SANPHAM _sanpham = new SANPHAM();
-        CTHD _hoadon = new CTHD();
+        private HOPDONG _hopdong = new HOPDONG();
+        private SANPHAM _sanpham = new SANPHAM();
+        private CTHD _hoadon = new CTHD();
 
         private List<SANPHAM> _listSanPham;
         private List<HOPDONG> _listHopDong;
@@ -25,13 +26,14 @@ namespace Main.GUI
 
 
         private CTHD _selected = null;
-        public FormHoaDon()
+        public FormHoaDon(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.CenterScreen;
             dtgrid_HoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Width = dtgrid_HoaDon.Width;
+            _tabControl = tabControl;
         }
 
         private void FormHoaDon_Load(object sender, EventArgs e)
@@ -40,14 +42,14 @@ namespace Main.GUI
             _listSanPham = data.SANPHAMs.ToList();
             _listCTHD = data.CTHDs.ToList();
 
-            cbtMHD.DataSource = _listHopDong;
-            cbtMHD.DisplayMembers = "TenHD";
+            cbbTenHD.DataSource = _listHopDong;
+            cbbTenHD.DisplayMember = "TenHD";
 
-            cbtMSP.DataSource = _listSanPham;
-            cbtMSP.DisplayMembers = "TenSP";
+            cbbTenSP.DataSource = _listSanPham;
+            cbbTenHD.DisplayMember = "TenSP";
 
             cbtTimKiem.DataSource = _listHopDong;
-            cbtTimKiem.DisplayMembers = "TenHD";
+            cbtTimKiem.DisplayMember = "TenHD";
 
             txtGia.Text = TinhTien().ToString();
             Refresh();
@@ -93,12 +95,18 @@ namespace Main.GUI
             {
                 btnThem.Enabled = true;
                 btnXoa.Enabled = true;
-                cbtMHD.Enabled = true;
-                cbtMSP.Enabled = true;
+                cbbTenHD.Enabled = true;
+                cbbTenHD.Enabled = true;
                 buttonLuu.Enabled = false;
             }
             else
-                this.Close();
+            {
+                if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    this.Close();
+                    _tabControl.Tabs.Remove(_tabControl.SelectedTab);
+                }
+            }     
         }
 
 
@@ -106,8 +114,8 @@ namespace Main.GUI
         {
             try
             {
-                _hoadon.MaSP = _listSanPham.ElementAt(cbtMSP.SelectedIndex).MaSP;
-                _hoadon.MaHD = _listHopDong[cbtMHD.SelectedIndex].MaHD;
+                _hoadon.MaSP = _listSanPham.ElementAt(cbbTenHD.SelectedIndex).MaSP;
+                _hoadon.MaHD = _listHopDong[cbbTenHD.SelectedIndex].MaHD;
                 _hoadon.SoLuong = (int)txtSL.Value;
                 _hoadon.ThanhTien = (float)Convert.ToDouble(txtGia.Text.ToString());
 
@@ -148,10 +156,10 @@ namespace Main.GUI
         }
         public float TinhTien()
         {
-            if (cbtMSP.SelectedIndex < 0) return 0;
+            if (cbbTenHD.SelectedIndex < 0) return 0;
 
             int Soluong = (int)txtSL.Value;
-            _sanpham = data.SANPHAMs.Where(sp => sp.MaSP == _listSanPham[cbtMSP.SelectedIndex].MaSP).SingleOrDefault<SANPHAM>();
+            _sanpham = data.SANPHAMs.Where(sp => sp.MaSP == _listSanPham[cbbTenHD.SelectedIndex].MaSP).SingleOrDefault<SANPHAM>();
             float Gia = (float)Convert.ToDouble(_sanpham.GiaSP);
             return  (float)Soluong * Gia;
         }
@@ -161,8 +169,8 @@ namespace Main.GUI
             btnXoa.Enabled = false;
             buttonLuu.Enabled = true;
 
-            cbtMHD.Enabled = false;
-            cbtMSP.Enabled = false;
+            cbbTenHD.Enabled = false;
+            cbbTenHD.Enabled = false;
         }
 
         private void dtgrid_HoaDon_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -204,8 +212,8 @@ namespace Main.GUI
 
                 txtGia.Text = _selected.ThanhTien.ToString();
                 txtSL.Value = _selected.SoLuong;
-                cbtMHD.Text = _selected.MaHD.ToString().Trim();
-                cbtMSP.Text = _selected.MaSP.ToString().Trim();
+                cbbTenHD.Text = _selected.MaHD.ToString().Trim();
+                cbbTenHD.Text = _selected.MaSP.ToString().Trim();
             }
             else
                 _selected = null;
@@ -240,8 +248,8 @@ namespace Main.GUI
                     data.SubmitChanges();
                     MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    cbtMHD.Enabled = true;
-                    cbtMSP.Enabled = true;
+                    cbbTenHD.Enabled = true;
+                    cbbTenHD.Enabled = true;
                     buttonLuu.Enabled = false;
                     btnXoa.Enabled = true;
                     btnThem.Enabled = true;

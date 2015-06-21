@@ -13,6 +13,7 @@ namespace Main.GUI
 {
     public partial class FormHoTro : Form
     {
+        private DevComponents.DotNetBar.TabControl _tabControl;
         private QLKhachHangDataContext data = new QLKhachHangDataContext(Connection.getConnectionString());
         private List<NHANVIEN> _listNhanVien;
         private List<KHACHHANG> _listKhachHang;
@@ -20,9 +21,10 @@ namespace Main.GUI
 
         private HOTRO _hoTro;
         private HOTRO _selected;
-        public FormHoTro()
+        public FormHoTro(DevComponents.DotNetBar.TabControl tabControl)
         {
             InitializeComponent();
+            _tabControl = tabControl;
         }
 
         private void FormHoTro_Load(object sender, EventArgs e)
@@ -32,12 +34,10 @@ namespace Main.GUI
             _listNhanVien = data.NHANVIENs.ToList();
 
             cbtTenKH.DataSource = _listKhachHang;
-            cbtTenKH.DisplayMembers = "TenKH";
-            cbtTenKH.ValueMember = "TenKH";
+            cbtTenKH.DisplayMember = "TenKH";
 
-            cbtTenNV.DataSource = _listNhanVien;
-            cbtTenNV.DisplayMembers = "TenNV";
-            cbtTenNV.ValueMember = "TenNV";
+            cbbTenNV.DataSource = _listNhanVien;
+            cbbTenNV.DisplayMember = "TenNV";
 
             txtMaHT.Text = GenerMaHT();
             showDataOnGridView();
@@ -92,6 +92,7 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn thoát!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Close();
+                _tabControl.Tabs.Remove(_tabControl.SelectedTab);
             }
         }
 
@@ -111,7 +112,7 @@ namespace Main.GUI
 
                 _hoTro.MaHT = txtMaHT.Text;
                 _hoTro.MaKH = _listKhachHang[cbtTenKH.SelectedIndex].MaKH;
-                _hoTro.MaNV = _listNhanVien[cbtTenNV.SelectedIndex].MaNV;
+                _hoTro.MaNV = _listNhanVien[cbbTenNV.SelectedIndex].MaNV;
                 _hoTro.NoiDung = txtNoiDung.Text;
                 _hoTro.TG_HT = dTimeThoiGian.Value;
 
@@ -141,7 +142,7 @@ namespace Main.GUI
 
 
                 cbtTenKH.Text = dtgrid_HoTro.Rows[e.RowIndex].Cells["TenKH"].Value.ToString();
-                cbtTenNV.Text = dtgrid_HoTro.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
+                cbbTenNV.Text = dtgrid_HoTro.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
                 dTimeThoiGian.Value = _selected.TG_HT.Value;
                 txtNoiDung.Text = _selected.NoiDung;
                 txtMaHT.Text = _selected.MaHT;
@@ -185,7 +186,7 @@ namespace Main.GUI
                 {
                     _hoTro.TG_HT = dTimeThoiGian.Value;
                     _hoTro.NoiDung = txtNoiDung.Text;
-                    _hoTro.MaNV = _listNhanVien[cbtTenNV.SelectedIndex].MaNV;
+                    _hoTro.MaNV = _listNhanVien[cbbTenNV.SelectedIndex].MaNV;
                     _hoTro.MaKH = _listKhachHang[cbtTenKH.SelectedIndex].MaKH;
 
                     data.SubmitChanges();
