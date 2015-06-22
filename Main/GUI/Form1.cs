@@ -204,6 +204,7 @@ namespace Main
             buttonItemTraCuuLH.Enabled = false;
             buttonItemTraCuuSP.Enabled = false;
 
+            buttonItemKhachHang.Enabled = false;
             buttonItemGiaoDich.Enabled = false;
             buttonItemGuiMail.Enabled = false;
             buttonItemHoTro.Enabled = false;
@@ -240,6 +241,9 @@ namespace Main
                     buttonItemHopDong.Enabled = true;
                     buttonItemThuChi.Enabled = true;
                     buttonItemNhanVien.Enabled = true;
+                    buttonItemTraCuuLH.Enabled = true;
+                    buttonItemTraCuuKH.Enabled = true;
+                    buttonItemTraCuuSP.Enabled = true;
                     buttonItemThayDoiMatKhau.Enabled = true;
                     break;
             }
@@ -281,6 +285,24 @@ namespace Main
             form.ShowDialog();
             
             phanQuyen(form._quyen);
+        }
+
+        private void buttonItemTraCuuKH_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Tra Cứu Khách Hàng") == false)
+            {
+                FormTraCuuThongTinKhachHang form = new FormTraCuuThongTinKhachHang(tabControl);
+                AddTabControl(form, "Tra Cứu Khách Hàng");
+            }
+        }
+
+        private void buttonItemTraCuuLH_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Tra Cứu Lịch Hẹn") == false)
+            {
+                FormTraCuuLichHen form = new FormTraCuuLichHen(tabControl);
+                AddTabControl(form, "Tra Cứu Lịch Hẹn");
+            }
         }
     }
 }

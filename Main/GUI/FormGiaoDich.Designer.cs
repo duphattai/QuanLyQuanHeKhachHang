@@ -122,7 +122,7 @@
             this.dtgrid_GiaoDich.Name = "dtgrid_GiaoDich";
             this.dtgrid_GiaoDich.Size = new System.Drawing.Size(777, 128);
             this.dtgrid_GiaoDich.TabIndex = 36;
-            this.dtgrid_GiaoDich.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_GiaoDich_RowEnter);
+            this.dtgrid_GiaoDich.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_GiaoDich_CellClick);
             // 
             // dtNGD
             // 

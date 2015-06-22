@@ -212,6 +212,18 @@
     <Compile Include="GUI\FormThuChi.Designer.cs">
       <DependentUpon>FormThuChi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormTraCuuLichHen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormTraCuuLichHen.Designer.cs">
+      <DependentUpon>FormTraCuuLichHen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormTraCuuThongTinKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormTraCuuThongTinKhachHang.Designer.cs">
+      <DependentUpon>FormTraCuuThongTinKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BUS\QLKhachHang.designer.cs">
@@ -269,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormThuChi.resx">
       <DependentUpon>FormThuChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormTraCuuLichHen.resx">
+      <DependentUpon>FormTraCuuLichHen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormTraCuuThongTinKhachHang.resx">
+      <DependentUpon>FormTraCuuThongTinKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -67,23 +67,6 @@ namespace Main.GUI
             txtMGD.Text = GenrMaGD();
         }
 
-        private void dtgrid_GiaoDich_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            int row = e.RowIndex;        
-            try
-            { 
-                txtMGD.Text = dtgrid_GiaoDich.Rows[row].Cells[0].Value.ToString().Trim();
-                String text = dtgrid_GiaoDich.Rows[row].Cells[1].Value.ToString().Trim();
-                cbbMHD.Text = text;
-                dtNGD.Text = Convert.ToDateTime(dtgrid_GiaoDich.Rows[row].Cells[3].Value).ToString("dd/MM/yyyy");
-                txtTGD.Text = dtgrid_GiaoDich.Rows[row].Cells[2].Value.ToString().Trim();
-                txtDDGD.Text = dtgrid_GiaoDich.Rows[row].Cells[4].Value.ToString().Trim();
-                
-            } catch(Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message, "Quản lý giao dịch re");
-            }
-        }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -190,6 +173,27 @@ namespace Main.GUI
             {
                 this.Close();
                 _tabControl.Tabs.Remove(_tabControl.SelectedTab);
+            }
+        }
+
+        private void dtgrid_GiaoDich_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row < 0 || row >= _listGiaoDich.Count) return;
+
+            try
+            {
+                txtMGD.Text = dtgrid_GiaoDich.Rows[row].Cells[0].Value.ToString().Trim();
+                String text = dtgrid_GiaoDich.Rows[row].Cells[1].Value.ToString().Trim();
+                cbbMHD.Text = text;
+                dtNGD.Text = Convert.ToDateTime(dtgrid_GiaoDich.Rows[row].Cells[3].Value).ToString("dd/MM/yyyy");
+                txtTGD.Text = dtgrid_GiaoDich.Rows[row].Cells[2].Value.ToString().Trim();
+                txtDDGD.Text = dtgrid_GiaoDich.Rows[row].Cells[4].Value.ToString().Trim();
+
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Quản lý giao dịch");
             }
         }
 
