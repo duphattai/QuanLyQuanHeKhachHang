@@ -115,7 +115,7 @@ namespace Main.GUI
                 _giaodich.DiaDiemGD = txtDDGD.Text;
 
                 data.GIAODICHes.InsertOnSubmit(_giaodich);
-                data.SubmitChanges();
+                //data.SubmitChanges();
 
                 showDataOnGridView();
                 MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

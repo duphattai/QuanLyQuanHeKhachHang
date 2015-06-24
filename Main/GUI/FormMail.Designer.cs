@@ -29,51 +29,75 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
+            this.txtMK = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTieuDe = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbbTenNV = new System.Windows.Forms.ComboBox();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.tabPageKhachHang = new DevExpress.XtraTab.XtraTabPage();
+            this.dt_GridKhachHang = new System.Windows.Forms.DataGridView();
+            this.tabPageLichSuGuiMail = new DevExpress.XtraTab.XtraTabPage();
+            this.dt_GridLichSuGuiMail = new System.Windows.Forms.DataGridView();
+            this.Ma_GM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKHPageGM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TG_Gui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDungGM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGuiMail = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnTaoMoi = new DevComponents.DotNetBar.ButtonX();
+            this.dTime = new System.Windows.Forms.DateTimePicker();
+            this.txtNoiDung = new System.Windows.Forms.TextBox();
+            this.txtMaGM = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
+            this.MaNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKHPageKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhomKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKHPageKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChiKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelEx1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.tabPageKhachHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_GridKhachHang)).BeginInit();
+            this.tabPageLichSuGuiMail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_GridLichSuGuiMail)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.dataGridView1);
-            this.panelEx1.Controls.Add(this.buttonX5);
+            this.panelEx1.Controls.Add(this.txtMK);
+            this.panelEx1.Controls.Add(this.label3);
+            this.panelEx1.Controls.Add(this.txtEmail);
+            this.panelEx1.Controls.Add(this.label7);
+            this.panelEx1.Controls.Add(this.txtTieuDe);
+            this.panelEx1.Controls.Add(this.label6);
+            this.panelEx1.Controls.Add(this.cbbTenNV);
+            this.panelEx1.Controls.Add(this.xtraTabControl1);
+            this.panelEx1.Controls.Add(this.btnGuiMail);
             this.panelEx1.Controls.Add(this.buttonX4);
-            this.panelEx1.Controls.Add(this.buttonX3);
-            this.panelEx1.Controls.Add(this.buttonX2);
-            this.panelEx1.Controls.Add(this.buttonX1);
-            this.panelEx1.Controls.Add(this.dateTimePicker1);
-            this.panelEx1.Controls.Add(this.textBox4);
-            this.panelEx1.Controls.Add(this.textBox3);
-            this.panelEx1.Controls.Add(this.textBox2);
-            this.panelEx1.Controls.Add(this.textBox1);
+            this.panelEx1.Controls.Add(this.btnTaoMoi);
+            this.panelEx1.Controls.Add(this.dTime);
+            this.panelEx1.Controls.Add(this.txtNoiDung);
+            this.panelEx1.Controls.Add(this.txtMaGM);
             this.panelEx1.Controls.Add(this.label5);
             this.panelEx1.Controls.Add(this.label4);
-            this.panelEx1.Controls.Add(this.label3);
             this.panelEx1.Controls.Add(this.label2);
             this.panelEx1.Controls.Add(this.label1);
             this.panelEx1.Controls.Add(this.reflectionLabel1);
@@ -81,7 +105,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(847, 465);
+            this.panelEx1.Size = new System.Drawing.Size(1000, 524);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -91,157 +115,244 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // dataGridView1
+            // txtMK
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 309);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(811, 114);
-            this.dataGridView1.TabIndex = 30;
+            this.txtMK.Location = new System.Drawing.Point(601, 204);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(150, 20);
+            this.txtMK.TabIndex = 39;
             // 
-            // Column1
+            // label3
             // 
-            this.Column1.HeaderText = "Số thứ tự";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 75;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(477, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 19);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Mật khẩu";
             // 
-            // Column2
+            // txtEmail
             // 
-            this.Column2.HeaderText = "Mã gửi mail";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.txtEmail.Location = new System.Drawing.Point(601, 162);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(150, 20);
+            this.txtEmail.TabIndex = 37;
             // 
-            // Column3
+            // label7
             // 
-            this.Column3.HeaderText = "Mã nhân viên";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(477, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 19);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Email";
             // 
-            // Column4
+            // txtTieuDe
             // 
-            this.Column4.HeaderText = "Mã khách hàng";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.txtTieuDe.Location = new System.Drawing.Point(293, 204);
+            this.txtTieuDe.Name = "txtTieuDe";
+            this.txtTieuDe.Size = new System.Drawing.Size(131, 20);
+            this.txtTieuDe.TabIndex = 35;
             // 
-            // Column5
+            // label6
             // 
-            this.Column5.HeaderText = "Nội dung gửi";
-            this.Column5.Name = "Column5";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(169, 203);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 19);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Tiêu đề";
             // 
-            // Column6
+            // cbbTenNV
             // 
-            this.Column6.HeaderText = "Thời gian gửi";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 150;
+            this.cbbTenNV.FormattingEnabled = true;
+            this.cbbTenNV.Location = new System.Drawing.Point(601, 115);
+            this.cbbTenNV.Name = "cbbTenNV";
+            this.cbbTenNV.Size = new System.Drawing.Size(150, 21);
+            this.cbbTenNV.TabIndex = 32;
+            this.cbbTenNV.SelectedIndexChanged += new System.EventHandler(this.cbbTenNV_SelectedIndexChanged);
             // 
-            // buttonX5
+            // xtraTabControl1
             // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonX5.Location = new System.Drawing.Point(251, 430);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(75, 23);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 29;
-            this.buttonX5.Text = "Lưu";
+            this.xtraTabControl1.Location = new System.Drawing.Point(161, 315);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.tabPageKhachHang;
+            this.xtraTabControl1.Size = new System.Drawing.Size(795, 166);
+            this.xtraTabControl1.TabIndex = 31;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabPageKhachHang,
+            this.tabPageLichSuGuiMail});
+            this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
+            this.xtraTabControl1.TabIndexChanged += new System.EventHandler(this.xtraTabControl1_TabIndexChanged);
+            // 
+            // tabPageKhachHang
+            // 
+            this.tabPageKhachHang.Controls.Add(this.dt_GridKhachHang);
+            this.tabPageKhachHang.Name = "tabPageKhachHang";
+            this.tabPageKhachHang.Size = new System.Drawing.Size(789, 138);
+            this.tabPageKhachHang.Text = "Khách hàng";
+            // 
+            // dt_GridKhachHang
+            // 
+            this.dt_GridKhachHang.AllowUserToAddRows = false;
+            this.dt_GridKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dt_GridKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNhomKH,
+            this.MaKHPageKH,
+            this.TenNhomKH,
+            this.TenKHPageKH,
+            this.DiaChiKH,
+            this.SoDienThoai,
+            this.CMND,
+            this.Email,
+            this.NgaySinh,
+            this.Chon});
+            this.dt_GridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dt_GridKhachHang.Location = new System.Drawing.Point(0, 0);
+            this.dt_GridKhachHang.Name = "dt_GridKhachHang";
+            this.dt_GridKhachHang.Size = new System.Drawing.Size(789, 138);
+            this.dt_GridKhachHang.TabIndex = 53;
+            // 
+            // tabPageLichSuGuiMail
+            // 
+            this.tabPageLichSuGuiMail.Controls.Add(this.dt_GridLichSuGuiMail);
+            this.tabPageLichSuGuiMail.Name = "tabPageLichSuGuiMail";
+            this.tabPageLichSuGuiMail.Size = new System.Drawing.Size(789, 138);
+            this.tabPageLichSuGuiMail.Text = "Lịch sử gửi email";
+            // 
+            // dt_GridLichSuGuiMail
+            // 
+            this.dt_GridLichSuGuiMail.AllowUserToAddRows = false;
+            this.dt_GridLichSuGuiMail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dt_GridLichSuGuiMail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ma_GM,
+            this.TenNV,
+            this.MaNV,
+            this.TenKHPageGM,
+            this.MaKH,
+            this.TG_Gui,
+            this.NoiDungGM});
+            this.dt_GridLichSuGuiMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dt_GridLichSuGuiMail.Location = new System.Drawing.Point(0, 0);
+            this.dt_GridLichSuGuiMail.Name = "dt_GridLichSuGuiMail";
+            this.dt_GridLichSuGuiMail.Size = new System.Drawing.Size(789, 138);
+            this.dt_GridLichSuGuiMail.TabIndex = 31;
+            // 
+            // Ma_GM
+            // 
+            this.Ma_GM.HeaderText = "Mã email";
+            this.Ma_GM.Name = "Ma_GM";
+            // 
+            // TenNV
+            // 
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
+            this.TenNV.Width = 130;
+            // 
+            // MaNV
+            // 
+            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.Visible = false;
+            this.MaNV.Width = 150;
+            // 
+            // TenKHPageGM
+            // 
+            this.TenKHPageGM.HeaderText = "Tên khách hàng";
+            this.TenKHPageGM.Name = "TenKHPageGM";
+            this.TenKHPageGM.ReadOnly = true;
+            this.TenKHPageGM.Width = 130;
+            // 
+            // MaKH
+            // 
+            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.Name = "MaKH";
+            this.MaKH.Visible = false;
+            this.MaKH.Width = 150;
+            // 
+            // TG_Gui
+            // 
+            this.TG_Gui.HeaderText = "Thời gian";
+            this.TG_Gui.Name = "TG_Gui";
+            this.TG_Gui.Width = 150;
+            // 
+            // NoiDungGM
+            // 
+            this.NoiDungGM.HeaderText = "Nội dung";
+            this.NoiDungGM.Name = "NoiDungGM";
+            this.NoiDungGM.Width = 230;
+            // 
+            // btnGuiMail
+            // 
+            this.btnGuiMail.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGuiMail.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGuiMail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.btnGuiMail.Location = new System.Drawing.Point(748, 487);
+            this.btnGuiMail.Name = "btnGuiMail";
+            this.btnGuiMail.Size = new System.Drawing.Size(81, 23);
+            this.btnGuiMail.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGuiMail.TabIndex = 29;
+            this.btnGuiMail.Text = "Gửi email";
+            this.btnGuiMail.Click += new System.EventHandler(this.btnGuiMail_Click);
             // 
             // buttonX4
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonX4.Location = new System.Drawing.Point(720, 430);
+            this.buttonX4.Location = new System.Drawing.Point(876, 487);
             this.buttonX4.Name = "buttonX4";
             this.buttonX4.Size = new System.Drawing.Size(75, 23);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 28;
             this.buttonX4.Text = "Thoát";
+            this.buttonX4.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // buttonX3
+            // btnTaoMoi
             // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonX3.Location = new System.Drawing.Point(558, 430);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(75, 23);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 27;
-            this.buttonX3.Text = "Sữa";
+            this.btnTaoMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTaoMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.btnTaoMoi.Location = new System.Drawing.Point(619, 487);
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnTaoMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTaoMoi.TabIndex = 25;
+            this.btnTaoMoi.Text = "Tạo mới";
             // 
-            // buttonX2
+            // dTime
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonX2.Location = new System.Drawing.Point(409, 430);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(75, 23);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 26;
-            this.buttonX2.Text = "Xóa";
+            this.dTime.Location = new System.Drawing.Point(293, 162);
+            this.dTime.Name = "dTime";
+            this.dTime.Size = new System.Drawing.Size(131, 20);
+            this.dTime.TabIndex = 24;
             // 
-            // buttonX1
+            // txtNoiDung
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonX1.Location = new System.Drawing.Point(112, 430);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(75, 23);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 25;
-            this.buttonX1.Text = "Thêm";
+            this.txtNoiDung.Location = new System.Drawing.Point(293, 245);
+            this.txtNoiDung.Multiline = true;
+            this.txtNoiDung.Name = "txtNoiDung";
+            this.txtNoiDung.Size = new System.Drawing.Size(458, 67);
+            this.txtNoiDung.TabIndex = 23;
             // 
-            // dateTimePicker1
+            // txtMaGM
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(519, 115);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 20);
-            this.dateTimePicker1.TabIndex = 24;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(253, 209);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(418, 79);
-            this.textBox4.TabIndex = 23;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(519, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 22;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(253, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 21;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(253, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 20;
+            this.txtMaGM.Location = new System.Drawing.Point(293, 115);
+            this.txtMaGM.Name = "txtMaGM";
+            this.txtMaGM.ReadOnly = true;
+            this.txtMaGM.Size = new System.Drawing.Size(131, 20);
+            this.txtMaGM.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(401, 115);
+            this.label5.Location = new System.Drawing.Point(169, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 19);
             this.label5.TabIndex = 19;
@@ -251,37 +362,27 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(129, 208);
+            this.label4.Location = new System.Drawing.Point(169, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 19);
             this.label4.TabIndex = 18;
             this.label4.Text = "Nội dung gửi";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(395, 161);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 19);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Mã khách hàng";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(129, 161);
+            this.label2.Location = new System.Drawing.Point(477, 115);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 19);
+            this.label2.Size = new System.Drawing.Size(103, 19);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Mã nhân viên";
+            this.label2.Text = "Tên nhân viên";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(129, 114);
+            this.label1.Location = new System.Drawing.Point(169, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 19);
             this.label1.TabIndex = 15;
@@ -294,24 +395,99 @@
             // 
             this.reflectionLabel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.reflectionLabel1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.reflectionLabel1.Location = new System.Drawing.Point(259, 29);
+            this.reflectionLabel1.Location = new System.Drawing.Point(299, 29);
             this.reflectionLabel1.Name = "reflectionLabel1";
             this.reflectionLabel1.Size = new System.Drawing.Size(287, 70);
             this.reflectionLabel1.TabIndex = 5;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Gửi Mail Khách Hàng</font></font>" +
     "</b>";
             // 
+            // MaNhomKH
+            // 
+            this.MaNhomKH.HeaderText = "MaNhomKH";
+            this.MaNhomKH.Name = "MaNhomKH";
+            this.MaNhomKH.ReadOnly = true;
+            this.MaNhomKH.Visible = false;
+            // 
+            // MaKHPageKH
+            // 
+            this.MaKHPageKH.HeaderText = "MaKH";
+            this.MaKHPageKH.Name = "MaKHPageKH";
+            this.MaKHPageKH.ReadOnly = true;
+            this.MaKHPageKH.Visible = false;
+            // 
+            // TenNhomKH
+            // 
+            this.TenNhomKH.HeaderText = "Nhóm";
+            this.TenNhomKH.Name = "TenNhomKH";
+            this.TenNhomKH.ReadOnly = true;
+            this.TenNhomKH.Width = 80;
+            // 
+            // TenKHPageKH
+            // 
+            this.TenKHPageKH.DataPropertyName = "TenKHPageKH";
+            this.TenKHPageKH.HeaderText = "Họ tên";
+            this.TenKHPageKH.Name = "TenKHPageKH";
+            this.TenKHPageKH.ReadOnly = true;
+            // 
+            // DiaChiKH
+            // 
+            this.DiaChiKH.DataPropertyName = "DiaChiKH";
+            this.DiaChiKH.HeaderText = "Địa chỉ";
+            this.DiaChiKH.Name = "DiaChiKH";
+            this.DiaChiKH.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.DataPropertyName = "SoDienThoai";
+            this.SoDienThoai.HeaderText = "Số điện thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // Chon
+            // 
+            this.Chon.HeaderText = "Chọn";
+            this.Chon.Name = "Chon";
+            this.Chon.Width = 66;
+            // 
             // FormMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 465);
+            this.ClientSize = new System.Drawing.Size(1000, 524);
             this.Controls.Add(this.panelEx1);
             this.Name = "FormMail";
             this.Text = "FormMail";
+            this.Load += new System.EventHandler(this.FormMail_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.tabPageKhachHang.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dt_GridKhachHang)).EndInit();
+            this.tabPageLichSuGuiMail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dt_GridLichSuGuiMail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -320,27 +496,44 @@
 
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dTime;
+        private System.Windows.Forms.TextBox txtNoiDung;
+        private System.Windows.Forms.TextBox txtMaGM;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevComponents.DotNetBar.ButtonX buttonX5;
+        private DevComponents.DotNetBar.ButtonX btnGuiMail;
         private DevComponents.DotNetBar.ButtonX buttonX4;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private DevComponents.DotNetBar.ButtonX btnTaoMoi;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage tabPageKhachHang;
+        private DevExpress.XtraTab.XtraTabPage tabPageLichSuGuiMail;
+        private System.Windows.Forms.DataGridView dt_GridKhachHang;
+        private System.Windows.Forms.DataGridView dt_GridLichSuGuiMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma_GM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKHPageGM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TG_Gui;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDungGM;
+        private System.Windows.Forms.ComboBox cbbTenNV;
+        private System.Windows.Forms.TextBox txtTieuDe;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMK;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNhomKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKHPageKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNhomKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKHPageKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
     }
 }

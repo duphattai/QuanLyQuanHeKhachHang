@@ -84,7 +84,7 @@ namespace Main
         {
             if (checkTab("Email") == false)
             {
-                FormMail form = new FormMail();
+                FormMail form = new FormMail(tabControl);
                 AddTabControl(form, "Email");
             }
         }

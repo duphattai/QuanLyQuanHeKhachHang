@@ -96,6 +96,19 @@ namespace Main.GUI
             return maGD;
         }
 
+        public String GenerMaGuiMail(String _Ma)
+        {
+            string maGM = "";
+            if (string.IsNullOrEmpty(_Ma))
+            {
+                maGM = "GM0001";
+                return maGM;
+            }
+            string KTD = _Ma.Substring(0, 2);
+            maGM = KTD + getNextIndex(_Ma.Substring(2));
+            return maGM;
+        }
+
         public String GenerMaSanPham(String _Ma)
         {
             string maSP = "";
