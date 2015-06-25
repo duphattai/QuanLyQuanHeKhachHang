@@ -236,7 +236,6 @@ namespace Main.GUI
             if (MessageBox.Show("Bạn muốn cập nhật!", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
-
             _hoadon = data.CTHDs.Where(hd => hd.MaHD == _selected.MaHD && hd.MaSP == _selected.MaSP).SingleOrDefault<CTHD>();
             try
             {

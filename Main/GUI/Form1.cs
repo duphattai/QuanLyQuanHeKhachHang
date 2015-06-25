@@ -304,5 +304,23 @@ namespace Main
                 AddTabControl(form, "Tra Cứu Lịch Hẹn");
             }
         }
+
+        private void buttonItemBaoCaoThang_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Báo Cáo Tháng") == false)
+            {
+                FormBaoCaoDoanhThuThang form = new FormBaoCaoDoanhThuThang(tabControl);
+                AddTabControl(form, "Báo Cáo Tháng");
+            }
+        }
+
+        private void buttonItemBaoCaoNam_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Báo Cáo Năm") == false)
+            {
+                FormBaoCaoNam form = new FormBaoCaoNam(tabControl);
+                AddTabControl(form, "Báo Cáo Năm");
+            }
+        }
     }
 }
