@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.btnTiep = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_GiaoDich)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.btnTiep);
             this.panelEx1.Controls.Add(this.cbbTimKiem);
             this.panelEx1.Controls.Add(this.cbbMHD);
             this.panelEx1.Controls.Add(this.txtMGD);
@@ -151,7 +153,7 @@
             this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLuu.Location = new System.Drawing.Point(325, 443);
+            this.btnLuu.Location = new System.Drawing.Point(210, 441);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -177,7 +179,7 @@
             this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSua.Location = new System.Drawing.Point(622, 441);
+            this.btnSua.Location = new System.Drawing.Point(510, 441);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -190,7 +192,7 @@
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.Location = new System.Drawing.Point(470, 443);
+            this.btnXoa.Location = new System.Drawing.Point(354, 441);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -203,7 +205,7 @@
             this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btnThem.Location = new System.Drawing.Point(188, 444);
+            this.btnThem.Location = new System.Drawing.Point(76, 441);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -289,6 +291,19 @@
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Thông Tin Giao Dịch</font></font>" +
     "</b>";
             // 
+            // btnTiep
+            // 
+            this.btnTiep.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTiep.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTiep.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.btnTiep.Location = new System.Drawing.Point(648, 441);
+            this.btnTiep.Name = "btnTiep";
+            this.btnTiep.Size = new System.Drawing.Size(75, 23);
+            this.btnTiep.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTiep.TabIndex = 42;
+            this.btnTiep.Text = "Thu chi";
+            this.btnTiep.Click += new System.EventHandler(this.btnTiep_Click);
+            // 
             // FormGiaoDich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +345,7 @@
         private System.Windows.Forms.TextBox txtMGD;
         private System.Windows.Forms.ComboBox cbbMHD;
         private System.Windows.Forms.ComboBox cbbTimKiem;
+        private DevComponents.DotNetBar.ButtonX btnTiep;
        
     }
 }

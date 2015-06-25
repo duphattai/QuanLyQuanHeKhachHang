@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHoaDon));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.cbtTimKiem = new System.Windows.Forms.ComboBox();
+            this.cbbTenHD = new System.Windows.Forms.ComboBox();
+            this.cbbTenSP = new System.Windows.Forms.ComboBox();
             this.buttonLuu = new DevComponents.DotNetBar.ButtonX();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSL = new System.Windows.Forms.NumericUpDown();
@@ -51,9 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.cbbTenSP = new System.Windows.Forms.ComboBox();
-            this.cbbTenHD = new System.Windows.Forms.ComboBox();
-            this.cbtTimKiem = new System.Windows.Forms.ComboBox();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrid_HoaDon)).BeginInit();
@@ -94,6 +94,30 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
+            // 
+            // cbtTimKiem
+            // 
+            this.cbtTimKiem.FormattingEnabled = true;
+            this.cbtTimKiem.Location = new System.Drawing.Point(82, 208);
+            this.cbtTimKiem.Name = "cbtTimKiem";
+            this.cbtTimKiem.Size = new System.Drawing.Size(100, 21);
+            this.cbtTimKiem.TabIndex = 48;
+            // 
+            // cbbTenHD
+            // 
+            this.cbbTenHD.FormattingEnabled = true;
+            this.cbbTenHD.Location = new System.Drawing.Point(313, 149);
+            this.cbbTenHD.Name = "cbbTenHD";
+            this.cbbTenHD.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenHD.TabIndex = 47;
+            // 
+            // cbbTenSP
+            // 
+            this.cbbTenSP.FormattingEnabled = true;
+            this.cbbTenSP.Location = new System.Drawing.Point(313, 108);
+            this.cbbTenSP.Name = "cbbTenSP";
+            this.cbbTenSP.Size = new System.Drawing.Size(100, 21);
+            this.cbbTenSP.TabIndex = 46;
             // 
             // buttonLuu
             // 
@@ -152,6 +176,7 @@
             // 
             // dtgrid_HoaDon
             // 
+            this.dtgrid_HoaDon.AllowUserToAddRows = false;
             this.dtgrid_HoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgrid_HoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenSP,
@@ -307,30 +332,6 @@
             this.reflectionLabel1.Size = new System.Drawing.Size(175, 70);
             this.reflectionLabel1.TabIndex = 0;
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Hóa Đơn</font></font></b>";
-            // 
-            // cbbTenSP
-            // 
-            this.cbbTenSP.FormattingEnabled = true;
-            this.cbbTenSP.Location = new System.Drawing.Point(313, 108);
-            this.cbbTenSP.Name = "cbbTenSP";
-            this.cbbTenSP.Size = new System.Drawing.Size(100, 21);
-            this.cbbTenSP.TabIndex = 46;
-            // 
-            // cbbTenHD
-            // 
-            this.cbbTenHD.FormattingEnabled = true;
-            this.cbbTenHD.Location = new System.Drawing.Point(313, 149);
-            this.cbbTenHD.Name = "cbbTenHD";
-            this.cbbTenHD.Size = new System.Drawing.Size(100, 21);
-            this.cbbTenHD.TabIndex = 47;
-            // 
-            // cbtTimKiem
-            // 
-            this.cbtTimKiem.FormattingEnabled = true;
-            this.cbtTimKiem.Location = new System.Drawing.Point(82, 208);
-            this.cbtTimKiem.Name = "cbtTimKiem";
-            this.cbtTimKiem.Size = new System.Drawing.Size(100, 21);
-            this.cbtTimKiem.TabIndex = 48;
             // 
             // FormHoaDon
             // 

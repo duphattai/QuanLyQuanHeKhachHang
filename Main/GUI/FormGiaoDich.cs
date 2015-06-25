@@ -197,5 +197,12 @@ namespace Main.GUI
             }
         }
 
+        private void btnTiep_Click(object sender, EventArgs e)
+        {
+            FormThuChi _thuchi = new FormThuChi(_tabControl);
+            _thuchi.value(txtMGD.Text);
+            _thuchi.Visible = true;
+        }
+
     }
 }

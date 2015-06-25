@@ -29,26 +29,19 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
+            this.cbtnhanvien = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.txtMa_GD = new System.Windows.Forms.TextBox();
+            this.dtgrid_thuchi = new System.Windows.Forms.DataGridView();
+            this.txtNVGD = new System.Windows.Forms.TextBox();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
-            this.btnTaoMoi = new DevComponents.DotNetBar.ButtonX();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.dtNgayThu = new System.Windows.Forms.DateTimePicker();
+            this.txtTienGD = new System.Windows.Forms.TextBox();
             this.txtTenKhoan = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaKhoan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,28 +50,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-            this.cbbMaGD = new System.Windows.Forms.ComboBox();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenkhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngaythu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nguoithu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nguoinhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_thuchi)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.cbbMaGD);
-            this.panelEx1.Controls.Add(this.dataGridView1);
-            this.panelEx1.Controls.Add(this.textBox6);
-            this.panelEx1.Controls.Add(this.textBox5);
+            this.panelEx1.Controls.Add(this.label8);
             this.panelEx1.Controls.Add(this.btnThem);
+            this.panelEx1.Controls.Add(this.cbtnhanvien);
+            this.panelEx1.Controls.Add(this.txtMa_GD);
+            this.panelEx1.Controls.Add(this.dtgrid_thuchi);
+            this.panelEx1.Controls.Add(this.txtNVGD);
             this.panelEx1.Controls.Add(this.btnThoat);
             this.panelEx1.Controls.Add(this.btnSua);
             this.panelEx1.Controls.Add(this.btnXoa);
-            this.panelEx1.Controls.Add(this.btnTaoMoi);
-            this.panelEx1.Controls.Add(this.dateTimePicker3);
-            this.panelEx1.Controls.Add(this.textBox8);
+            this.panelEx1.Controls.Add(this.dtNgayThu);
+            this.panelEx1.Controls.Add(this.txtTienGD);
             this.panelEx1.Controls.Add(this.txtTenKhoan);
-            this.panelEx1.Controls.Add(this.textBox1);
+            this.panelEx1.Controls.Add(this.txtMaKhoan);
             this.panelEx1.Controls.Add(this.label7);
             this.panelEx1.Controls.Add(this.label6);
             this.panelEx1.Controls.Add(this.label5);
@@ -91,7 +92,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(941, 492);
+            this.panelEx1.Size = new System.Drawing.Size(965, 492);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -101,77 +102,15 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 1;
             // 
-            // dataGridView1
+            // label8
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column3,
-            this.TenGD,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(80, 308);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(849, 114);
-            this.dataGridView1.TabIndex = 52;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Mã khoản";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Mã giao dịch";
-            this.Column3.Name = "Column3";
-            // 
-            // TenGD
-            // 
-            this.TenGD.HeaderText = "Tên giao dịch";
-            this.TenGD.Name = "TenGD";
-            this.TenGD.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tên khoản";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Ngày thu";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Người thu";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Người nhận";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Tiền";
-            this.Column8.Name = "Column8";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(502, 221);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 20);
-            this.textBox6.TabIndex = 50;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(503, 174);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(145, 20);
-            this.textBox5.TabIndex = 49;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(899, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 19);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "VNĐ";
             // 
             // btnThem
             // 
@@ -182,8 +121,62 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThem.TabIndex = 48;
+            this.btnThem.TabIndex = 56;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // cbtnhanvien
+            // 
+            this.cbtnhanvien.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.cbtnhanvien.BackgroundStyle.Class = "TextBoxBorder";
+            this.cbtnhanvien.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbtnhanvien.ButtonClear.Tooltip = "";
+            this.cbtnhanvien.ButtonCustom.Tooltip = "";
+            this.cbtnhanvien.ButtonCustom2.Tooltip = "";
+            this.cbtnhanvien.ButtonDropDown.Tooltip = "";
+            this.cbtnhanvien.ButtonDropDown.Visible = true;
+            this.cbtnhanvien.Location = new System.Drawing.Point(535, 218);
+            this.cbtnhanvien.Name = "cbtnhanvien";
+            this.cbtnhanvien.Size = new System.Drawing.Size(145, 23);
+            this.cbtnhanvien.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbtnhanvien.TabIndex = 55;
+            // 
+            // txtMa_GD
+            // 
+            this.txtMa_GD.Enabled = false;
+            this.txtMa_GD.Location = new System.Drawing.Point(234, 173);
+            this.txtMa_GD.Name = "txtMa_GD";
+            this.txtMa_GD.Size = new System.Drawing.Size(114, 20);
+            this.txtMa_GD.TabIndex = 53;
+            // 
+            // dtgrid_thuchi
+            // 
+            this.dtgrid_thuchi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrid_thuchi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.MaKhoan,
+            this.MaGD,
+            this.TenGD,
+            this.Tenkhoan,
+            this.Ngaythu,
+            this.Nguoithu,
+            this.Nguoinhan,
+            this.Tien});
+            this.dtgrid_thuchi.Location = new System.Drawing.Point(37, 287);
+            this.dtgrid_thuchi.Name = "dtgrid_thuchi";
+            this.dtgrid_thuchi.Size = new System.Drawing.Size(906, 142);
+            this.dtgrid_thuchi.TabIndex = 52;
+            this.dtgrid_thuchi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrid_thuchi_CellClick);
+            // 
+            // txtNVGD
+            // 
+            this.txtNVGD.Location = new System.Drawing.Point(535, 171);
+            this.txtNVGD.Name = "txtNVGD";
+            this.txtNVGD.Size = new System.Drawing.Size(145, 20);
+            this.txtNVGD.TabIndex = 49;
             // 
             // btnThoat
             // 
@@ -209,6 +202,7 @@
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSua.TabIndex = 46;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -221,32 +215,21 @@
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnXoa.TabIndex = 45;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnTaoMoi
+            // dtNgayThu
             // 
-            this.btnTaoMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTaoMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.btnTaoMoi.Location = new System.Drawing.Point(290, 457);
-            this.btnTaoMoi.Name = "btnTaoMoi";
-            this.btnTaoMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnTaoMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTaoMoi.TabIndex = 44;
-            this.btnTaoMoi.Text = "Tạo mới";
+            this.dtNgayThu.Location = new System.Drawing.Point(535, 121);
+            this.dtNgayThu.Name = "dtNgayThu";
+            this.dtNgayThu.Size = new System.Drawing.Size(145, 20);
+            this.dtNgayThu.TabIndex = 43;
             // 
-            // dateTimePicker3
+            // txtTienGD
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(502, 126);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(145, 20);
-            this.dateTimePicker3.TabIndex = 43;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(772, 127);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(108, 20);
-            this.textBox8.TabIndex = 40;
+            this.txtTienGD.Location = new System.Drawing.Point(785, 121);
+            this.txtTienGD.Name = "txtTienGD";
+            this.txtTienGD.Size = new System.Drawing.Size(108, 20);
+            this.txtTienGD.TabIndex = 40;
             // 
             // txtTenKhoan
             // 
@@ -255,13 +238,13 @@
             this.txtTenKhoan.Size = new System.Drawing.Size(114, 20);
             this.txtTenKhoan.TabIndex = 37;
             // 
-            // textBox1
+            // txtMaKhoan
             // 
-            this.textBox1.Location = new System.Drawing.Point(234, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(114, 20);
-            this.textBox1.TabIndex = 36;
+            this.txtMaKhoan.Location = new System.Drawing.Point(234, 127);
+            this.txtMaKhoan.Name = "txtMaKhoan";
+            this.txtMaKhoan.ReadOnly = true;
+            this.txtMaKhoan.Size = new System.Drawing.Size(114, 20);
+            this.txtMaKhoan.TabIndex = 36;
             // 
             // label7
             // 
@@ -269,15 +252,15 @@
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(396, 222);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 19);
+            this.label7.Size = new System.Drawing.Size(113, 19);
             this.label7.TabIndex = 34;
-            this.label7.Text = "Người nhận";
+            this.label7.Text = "Nhân viên nhận";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(697, 127);
+            this.label6.Location = new System.Drawing.Point(720, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 19);
             this.label6.TabIndex = 33;
@@ -289,9 +272,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(396, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 19);
+            this.label5.Size = new System.Drawing.Size(140, 19);
             this.label5.TabIndex = 32;
-            this.label5.Text = "Người thu";
+            this.label5.Text = "Nhân viên giao dịch";
             // 
             // label4
             // 
@@ -347,25 +330,65 @@
             this.reflectionLabel1.Text = "<b><font size=\"+6\"><i></i><font color=\"#B02B2C\">Quản Lý Thu Chi</font></font></b>" +
     "";
             // 
-            // cbbMaGD
+            // STT
             // 
-            this.cbbMaGD.FormattingEnabled = true;
-            this.cbbMaGD.Location = new System.Drawing.Point(234, 175);
-            this.cbbMaGD.Name = "cbbMaGD";
-            this.cbbMaGD.Size = new System.Drawing.Size(114, 21);
-            this.cbbMaGD.TabIndex = 53;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // MaKhoan
+            // 
+            this.MaKhoan.HeaderText = "Mã khoản";
+            this.MaKhoan.Name = "MaKhoan";
+            // 
+            // MaGD
+            // 
+            this.MaGD.HeaderText = "Mã giao dịch";
+            this.MaGD.Name = "MaGD";
+            // 
+            // TenGD
+            // 
+            this.TenGD.HeaderText = "Tên giao dịch";
+            this.TenGD.Name = "TenGD";
+            this.TenGD.ReadOnly = true;
+            // 
+            // Tenkhoan
+            // 
+            this.Tenkhoan.HeaderText = "Tên khoản";
+            this.Tenkhoan.Name = "Tenkhoan";
+            // 
+            // Ngaythu
+            // 
+            this.Ngaythu.HeaderText = "Ngày thu";
+            this.Ngaythu.Name = "Ngaythu";
+            // 
+            // Nguoithu
+            // 
+            this.Nguoithu.HeaderText = "Nhân viên giao dịch";
+            this.Nguoithu.Name = "Nguoithu";
+            // 
+            // Nguoinhan
+            // 
+            this.Nguoinhan.HeaderText = "Nhân viên nhận";
+            this.Nguoinhan.Name = "Nguoinhan";
+            // 
+            // Tien
+            // 
+            this.Tien.HeaderText = "Tiền";
+            this.Tien.Name = "Tien";
             // 
             // FormThuChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 492);
+            this.ClientSize = new System.Drawing.Size(965, 492);
             this.Controls.Add(this.panelEx1);
             this.Name = "FormThuChi";
             this.Text = "FormThuChi";
+            this.Load += new System.EventHandler(this.FormThuChi_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrid_thuchi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,18 +396,15 @@
         #endregion
 
         private DevComponents.DotNetBar.PanelEx panelEx1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private DevComponents.DotNetBar.ButtonX btnThem;
+        private System.Windows.Forms.DataGridView dtgrid_thuchi;
+        private System.Windows.Forms.TextBox txtNVGD;
         private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
-        private DevComponents.DotNetBar.ButtonX btnTaoMoi;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.DateTimePicker dtNgayThu;
+        private System.Windows.Forms.TextBox txtTienGD;
         private System.Windows.Forms.TextBox txtTenKhoan;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaKhoan;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -393,14 +413,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.TextBox txtMa_GD;
+        private DevComponents.DotNetBar.Controls.ComboTree cbtnhanvien;
+        private DevComponents.DotNetBar.ButtonX btnThem;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaGD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.ComboBox cbbMaGD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tenkhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngaythu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nguoithu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nguoinhan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tien;
     }
 }

@@ -96,27 +96,12 @@ namespace Main.GUI
                 }
             }
         }
-
-
-        private float tinhTienHopDong(string MaHD)
-        {
-            float tien = 0.0f;
-            List<CTHD> list = (from cthd in data.CTHDs
-                               where (cthd.MaHD == MaHD)
-                               select cthd).ToList<CTHD>();
-
-            foreach(CTHD cthd in list)
-            {
-                tien += (float)cthd.ThanhTien;
-            }
-            return tien;
-        }
         private void showDataOnGridViewPageDoanhThu()
         {
             dtgrid_DoanhThu.Rows.Clear();
             dtgrid_DoanhThu.RowCount = _listDoanhThu.Count;
 
-            for (int i = 0; i < _listDoanhThu.Count; i++)
+            for(int i = 0; i < _listDoanhThu.Count; i++)
             {
                 dtgrid_DoanhThu.Rows[i].Cells["MaKHTabPageDoanhThu"].Value = _listDoanhThu[i].MaKH;
                 dtgrid_DoanhThu.Rows[i].Cells["MaNVTabPageDoanhThu"].Value = _listDoanhThu[i].MaNV;
@@ -141,7 +126,20 @@ namespace Main.GUI
                     }
                 }
             }
-        } // show data
+        }
+        private float tinhTienHopDong(string MaHD)
+        {
+            float tien = 0.0f;
+            List<CTHD> list = (from cthd in data.CTHDs
+                               where (cthd.MaHD == MaHD)
+                               select cthd).ToList<CTHD>();
+
+            foreach(CTHD cthd in list)
+            {
+                tien += (float)cthd.ThanhTien;
+            }
+            return tien;
+        }
 
         private void btnLapBaoCao_Click(object sender, EventArgs e)
         {
@@ -164,6 +162,11 @@ namespace Main.GUI
             else if (xtraTabControl1.SelectedTabPage == xtraTabControl1.TabPages[2]) // doanh thu
             {
                 // code thu chi here
+                _listDoanhThu = (from hopdong in data.HOPDONGs
+                                 where (hopdong.NgayKy.Value >= dTimeTuNgay.Value && hopdong.NgayKy.Value <= dTimeDenNgay.Value)
+                                 select hopdong).ToList<HOPDONG>();
+
+                showDataOnGridViewPageDoanhThu();
             }
         }
 

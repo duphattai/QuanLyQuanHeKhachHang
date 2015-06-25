@@ -57,10 +57,7 @@ namespace Main.GUI
         public void Refresh()
         {
             dtgrid_HoaDon.Rows.Clear();
-            if (_listCTHD.Count == 0)
-                dtgrid_HoaDon.RowCount = _listCTHD.Count + 1;
-            else
-                dtgrid_HoaDon.RowCount = _listCTHD.Count;
+            dtgrid_HoaDon.RowCount = _listCTHD.Count;
 
             for(int i = 0; i < _listCTHD.Count; i++)
             {
@@ -114,7 +111,7 @@ namespace Main.GUI
         {
             try
             {
-                _hoadon.MaSP = _listSanPham.ElementAt(cbbTenHD.SelectedIndex).MaSP;
+                _hoadon.MaSP = _listSanPham.ElementAt(cbbTenSP.SelectedIndex).MaSP;
                 _hoadon.MaHD = _listHopDong[cbbTenHD.SelectedIndex].MaHD;
                 _hoadon.SoLuong = (int)txtSL.Value;
                 _hoadon.ThanhTien = (float)Convert.ToDouble(txtGia.Text.ToString());
@@ -159,7 +156,7 @@ namespace Main.GUI
             if (cbbTenHD.SelectedIndex < 0) return 0;
 
             int Soluong = (int)txtSL.Value;
-            _sanpham = data.SANPHAMs.Where(sp => sp.MaSP == _listSanPham[cbbTenHD.SelectedIndex].MaSP).SingleOrDefault<SANPHAM>();
+            _sanpham = data.SANPHAMs.Where(sp => sp.MaSP == _listSanPham[cbbTenSP.SelectedIndex].MaSP).SingleOrDefault<SANPHAM>();
             float Gia = (float)Convert.ToDouble(_sanpham.GiaSP);
             return  (float)Soluong * Gia;
         }

@@ -212,8 +212,7 @@ namespace Main
             buttonItemHopDong.Enabled = false;
             buttonItemLapLichHen.Enabled = false;
             buttonItemNhanVien.Enabled = false;
-            buttonItemNhapSanPham.Enabled = false;
-            buttonItemThuChi.Enabled = false;   
+            buttonItemNhapSanPham.Enabled = false;  
         }
 
 
@@ -239,7 +238,6 @@ namespace Main
                 case "ND0003": // quản lý
                     buttonItemGiaoDich.Enabled = true;
                     buttonItemHopDong.Enabled = true;
-                    buttonItemThuChi.Enabled = true;
                     buttonItemNhanVien.Enabled = true;
                     buttonItemTraCuuLH.Enabled = true;
                     buttonItemTraCuuKH.Enabled = true;
@@ -255,15 +253,6 @@ namespace Main
 
             setDefaulAuthority();
             phanQuyen(form._quyen);
-        }
-
-        private void buttonItemKhachHang_Click(object sender, EventArgs e)
-        {
-            if (checkTab("Khách Hàng") == false)
-            {
-                FormNhapKhachHang form = new FormNhapKhachHang(tabControl);
-                AddTabControl(form, "Khách Hàng");
-            }
         }
 
         private void buttonItemThayDoiMatKhau_Click(object sender, EventArgs e)
@@ -320,6 +309,42 @@ namespace Main
             {
                 FormBaoCaoNam form = new FormBaoCaoNam(tabControl);
                 AddTabControl(form, "Báo Cáo Năm");
+            }
+        }
+
+        private void buttonItemKhachHang_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Khách Hàng") == false)
+            {
+                FormNhapKhachHang form = new FormNhapKhachHang(tabControl);
+                AddTabControl(form, "Khách Hàng");
+            }
+        }
+
+        private void buttonItemNguoiDung_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Người Dùng") == false)
+            {
+                FormNguoiDung form = new FormNguoiDung(tabControl);
+                AddTabControl(form, "Người Dùng");
+            }
+        }
+
+        private void buttonItemNhomND_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Nhóm người dùng") == false)
+            {
+                FormNhomNguoiDung _nhomnd = new FormNhomNguoiDung(tabControl);
+                AddTabControl(_nhomnd, "Nhóm người dùng");
+            }
+        }
+
+        private void buttonItem17_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Nhóm khách hàng") == false)
+            {
+                FormNhomKhachHang _nhomkh = new FormNhomKhachHang(tabControl);
+                AddTabControl(_nhomkh, "Nhóm khách hàng");
             }
         }
     }

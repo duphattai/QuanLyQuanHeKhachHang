@@ -109,6 +109,19 @@ namespace Main.GUI
             return maGM;
         }
 
+        public String GenerMaThuChi(String _Ma)
+        {
+            string MaTK = "";
+            if (string.IsNullOrEmpty(_Ma))
+            {
+                MaTK = "TK0001";
+                return MaTK;
+            }
+            string KTD = _Ma.Substring(0, 2);
+            MaTK = KTD + getNextIndex(_Ma.Substring(2));
+            return MaTK;
+        }
+
         public String GenerMaSanPham(String _Ma)
         {
             string maSP = "";
